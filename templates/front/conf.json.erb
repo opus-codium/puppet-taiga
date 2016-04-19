@@ -1,0 +1,14 @@
+{
+    "api": "<%= @back_protocol %>://<%= @back_hostname %>/api/v1/",
+<% if @events -%>
+    "eventsUrl": "<%= @ws_protocol %>://<%= @back_hostname %>/events",
+<% end -%>
+    "debug": "true",
+    "defaultLanguage": "<%= @default_language %>",
+    "publicRegisterEnabled": true,
+    "feedbackEnabled": true,
+    "privacyPolicyUrl": null,
+    "termsOfServiceUrl": null,
+    "maxUploadFileSize": null,
+    "contribPlugins": []
+}
