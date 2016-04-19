@@ -7,22 +7,25 @@ class taiga (
   $back_directory = '/srv/www/taiga-back',
   $front_directory = '/srv/www/taiga-front',
   $back_user = 'taiga',
+  $public_register_enabled = true,
 ) {
   class { 'taiga::front':
-    back_hostname    => $hostname,
-    back_protocol    => $protocol,
-    default_language => $default_language,
-    install_dir      => $front_directory,
+    back_hostname           => $hostname,
+    back_protocol           => $protocol,
+    default_language        => $default_language,
+    install_dir             => $front_directory,
+    public_register_enabled => $public_register_enabled,
   }
   class { 'taiga::back':
-    front_hostname => $hostname,
-    front_protocol => $protocol,
-    back_hostname  => $back_hostname,
-    back_protocol  => $protocol,
-    secret_key     => $back_secret_key,
-    db_password    => $back_db_password,
-    install_dir    => $back_directory,
-    user           => $back_user,
+    front_hostname          => $hostname,
+    front_protocol          => $protocol,
+    back_hostname           => $back_hostname,
+    back_protocol           => $protocol,
+    secret_key              => $back_secret_key,
+    db_password             => $back_db_password,
+    install_dir             => $back_directory,
+    user                    => $back_user,
+    public_register_enabled => $public_register_enabled,
   }
 
   class { 'taiga::vhost':

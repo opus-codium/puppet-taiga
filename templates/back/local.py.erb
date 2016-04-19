@@ -10,7 +10,7 @@ SECRET_KEY = "<%= @secret_key %>"
 
 DEBUG = False
 TEMPLATE_DEBUG = False
-PUBLIC_REGISTER_ENABLED = True
+PUBLIC_REGISTER_ENABLED = <%= @public_register_enabled.to_s.capitalize %>
 
 DEFAULT_FROM_EMAIL = "no-reply@<%= @front_hostname %>"
 SERVER_EMAIL = DEFAULT_FROM_EMAIL

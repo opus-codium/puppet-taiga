@@ -9,6 +9,7 @@ class taiga::back (
   $db_password,
   $user = 'taiga',
   $install_dir = '/srv/www/taiga-back',
+  $public_register_enabled = true,
 ) {
   include taiga::back::user
   include taiga::back::dependencies

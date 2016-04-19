@@ -5,6 +5,7 @@ class taiga::front (
   $user = 'nobody',
   $install_dir = '/srv/www/taiga-front',
   $default_language = 'en',
+  $public_register_enabled = true,
 ) {
   include taiga::front::repo
   include taiga::front::config
