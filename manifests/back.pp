@@ -26,4 +26,7 @@ class taiga::back (
   Class['taiga::back::config'] ->
   Class['taiga::back::database'] ~>
   Class['taiga::back::migrations']
+
+  Class['taiga::back::config'] ~>
+  Service['httpd']
 }
