@@ -9,14 +9,28 @@ class taiga (
   $back_user = 'taiga',
   $public_register_enabled = true,
   $login_form_type = undef,
+  $ldap_server = undef,
+  $ldap_port = 389,
+  $ldap_bind_dn = undef,
+  $ldap_bind_password = undef,
+  $ldap_search_base = 'ou=people,dc=example,dc=com',
+  $ldap_search_property = 'uid',
+  $ldap_search_suffix = undef,
+  $ldap_email_property = 'mail',
+  $ldap_full_name_property = 'cn',
 ) {
+  $ldap_enable = $ldap_server ? {
+    undef   => false,
+    default => true,
+  }
+
   class { 'taiga::front':
     back_hostname           => $hostname,
     back_protocol           => $protocol,
     default_language        => $default_language,
     install_dir             => $front_directory,
     public_register_enabled => $public_register_enabled,
-    login_form_type         => $login_form_type,
+    ldap_enable             => $ldap_enable,
   }
   class { 'taiga::back':
     front_hostname          => $hostname,
@@ -28,6 +42,16 @@ class taiga (
     install_dir             => $back_directory,
     user                    => $back_user,
     public_register_enabled => $public_register_enabled,
+    ldap_enable             => $ldap_enable,
+    ldap_server             => $ldap_server,
+    ldap_port               => $ldap_port,
+    ldap_bind_dn            => $ldap_bind_dn,
+    ldap_bind_password      => $ldap_bind_password,
+    ldap_search_base        => $ldap_search_base,
+    ldap_search_property    => $ldap_search_property,
+    ldap_search_suffix      => $ldap_search_suffix,
+    ldap_email_property     => $ldap_email_property,
+    ldap_full_name_property => $ldap_full_name_property,
   }
 
   class { 'taiga::vhost':

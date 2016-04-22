@@ -1,6 +1,11 @@
 class taiga::front::config {
   include taiga::front
 
+  $login_form_type = $taiga::front::ldap_enable ? {
+    true    => 'ldap',
+    default => undef,
+  }
+
   $ws_protocol = $taiga::front::back_protocol ? {
     'http'  => 'ws',
     'https' => 'wss',

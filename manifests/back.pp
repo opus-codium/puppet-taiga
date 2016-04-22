@@ -10,6 +10,16 @@ class taiga::back (
   $user = 'taiga',
   $install_dir = '/srv/www/taiga-back',
   $public_register_enabled = true,
+  $ldap_enable = false,
+  $ldap_server = undef,
+  $ldap_port = 389,
+  $ldap_bind_dn = undef,
+  $ldap_bind_password = undef,
+  $ldap_search_base = 'ou=people,dc=example,dc=com',
+  $ldap_search_property = 'uid',
+  $ldap_search_suffix = undef,
+  $ldap_email_property = 'mail',
+  $ldap_full_name_property = 'cn',
 ) {
   include taiga::back::user
   include taiga::back::dependencies
@@ -26,6 +36,13 @@ class taiga::back (
   Class['taiga::back::config'] ->
   Class['taiga::back::database'] ~>
   Class['taiga::back::migrations']
+
+  if $ldap_enable {
+    include taiga::back::ldap
+
+    Class['taiga::back::env'] ->
+    Class['taiga::back::ldap']
+  }
 
   Class['taiga::back::config'] ~>
   Service['httpd']

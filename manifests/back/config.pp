@@ -12,4 +12,12 @@ class taiga::back::config {
     content => template('taiga/back/local.py.erb'),
     order   => '00',
   }
+
+  if $taiga::back::ldap_enable {
+    concat::fragment { 'taiga-back-local.py-ldap':
+      target  => "${taiga::back::install_dir}/settings/local.py",
+      content => template('taiga/back/local.py-ldap.erb'),
+      order   => '10',
+    }
+  }
 }
