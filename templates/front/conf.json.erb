@@ -7,6 +7,9 @@
     "defaultLanguage": "<%= @default_language %>",
     "publicRegisterEnabled": <%= @public_register_enabled %>,
     "feedbackEnabled": true,
+<% if @login_form_type -%>
+    "loginFormType": "<%= @login_form_type %>",
+<% end -%>
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,

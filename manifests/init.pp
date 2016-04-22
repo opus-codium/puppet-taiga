@@ -8,6 +8,7 @@ class taiga (
   $front_directory = '/srv/www/taiga-front',
   $back_user = 'taiga',
   $public_register_enabled = true,
+  $login_form_type = undef,
 ) {
   class { 'taiga::front':
     back_hostname           => $hostname,
@@ -15,6 +16,7 @@ class taiga (
     default_language        => $default_language,
     install_dir             => $front_directory,
     public_register_enabled => $public_register_enabled,
+    login_form_type         => $login_form_type,
   }
   class { 'taiga::back':
     front_hostname          => $hostname,
