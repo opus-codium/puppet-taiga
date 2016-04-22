@@ -17,12 +17,12 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # Uncomment and populate with proper connection parameters
 # for enable email sending. EMAIL_HOST_USER should end by @domain.tld
-#EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-#EMAIL_USE_TLS = False
-#EMAIL_HOST = "localhost"
-#EMAIL_HOST_USER = ""
-#EMAIL_HOST_PASSWORD = ""
-#EMAIL_PORT = 25
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = <%= @email_use_tls.to_s.capitalize %>
+EMAIL_HOST = "<%= @email_host %>"
+EMAIL_HOST_USER = "<%= @email_user %>"
+EMAIL_HOST_PASSWORD = "<%= @email_password %>"
+EMAIL_PORT = <%= @email_port %>
 
 # Uncomment and populate with proper connection parameters
 # for enable github login/singin.

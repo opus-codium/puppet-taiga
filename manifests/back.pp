@@ -20,6 +20,11 @@ class taiga::back (
   $ldap_search_suffix = undef,
   $ldap_email_property = 'mail',
   $ldap_full_name_property = 'cn',
+  $email_use_tls = false,
+  $email_host = 'localhost',
+  $email_port = 25,
+  $email_user = undef,
+  $email_password = undef,
 ) {
   include taiga::back::user
   include taiga::back::dependencies
