@@ -1,14 +1,6 @@
 class taiga::back::config {
   include taiga::back
 
-  $front_hostname = $taiga::back::front_hostname
-  $front_protocol = $taiga::back::front_protocol
-
-  $back_hostname = $taiga::back::back_hostname
-  $back_protocol = $taiga::back::back_protocol
-
-  $secret_key = $taiga::back::secret_key
-
   concat { "${taiga::back::install_dir}/settings/local.py":
     ensure => present,
     owner  => $taiga::back::user,
