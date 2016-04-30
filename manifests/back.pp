@@ -42,6 +42,9 @@ class taiga::back (
   Class['taiga::back::database'] ~>
   Class['taiga::back::migrations']
 
+  Class['taiga::back::repo'] ~>
+  Class['taiga::back::migrations']
+
   if $ldap_enable {
     include taiga::back::ldap
 
