@@ -61,4 +61,6 @@ class taiga (
     front_directory => $front_directory,
     back_user       => $back_user,
   }
+
+  Class['taiga::back::repo'] -> Class['taiga::vhost']
 }
