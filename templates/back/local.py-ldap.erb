@@ -1,18 +1,18 @@
 INSTALLED_APPS += ["taiga_contrib_ldap_auth"]
 
-LDAP_SERVER = '<%= @ldap_server %>'
-LDAP_PORT = <%= @ldap_port %>
+LDAP_SERVER = '<%= scope.lookupvar('taiga::back::ldap_server') %>'
+LDAP_PORT = <%= scope.lookupvar('taiga::back::ldap_port') %>
 
 # Full DN of the service account use to connect to LDAP server and search for login user's account entry
 # If LDAP_BIND_DN is not specified, or is blank, then an anonymous bind is attempated
-LDAP_BIND_DN = <%= @ldap_bind_dn ? "'#{@ldap_bind_dn}'" : 'None' %>
-LDAP_BIND_PASSWORD = <%= @ldap_bind_password ? "'#{@ldap_bind_password}'" : 'None' %>
+LDAP_BIND_DN = <%= scope.lookupvar('taiga::back::ldap_bind_dn') ? "'#{scope.lookupvar('taiga::back::ldap_bind_dn')}'" : 'None' %>
+LDAP_BIND_PASSWORD = <%= scope.lookupvar('taiga::back::ldap_bind_password') ? "'#{scope.lookupvar('taiga::back::ldap_bind_password')}'" : 'None' %>
 # Starting point within LDAP structure to search for login user
-LDAP_SEARCH_BASE = '<%= @ldap_search_base %>'
+LDAP_SEARCH_BASE = '<%= scope.lookupvar('taiga::back::ldap_search_base') %>'
 # LDAP property used for searching, ie. login username needs to match value in sAMAccountName property in LDAP
-LDAP_SEARCH_PROPERTY = '<%= @ldap_search_property %>'
-LDAP_SEARCH_SUFFIX = <%= @ldap_search_suffix ? "'#{@ldap_search_suffix}'" : 'None' %> # '@example.com'
+LDAP_SEARCH_PROPERTY = '<%= scope.lookupvar('taiga::back::ldap_search_property') %>'
+LDAP_SEARCH_SUFFIX = <%= scope.lookupvar('taiga::back::ldap_search_suffix') ? "'#{scope.lookupvar('taiga::back::ldap_search_suffix')}'" : 'None' %> # '@example.com'
 
 # Names of LDAP properties on user account to get email and full name
-LDAP_EMAIL_PROPERTY = '<%= @ldap_email_property %>'
-LDAP_FULL_NAME_PROPERTY = '<%= @ldap_full_name_property %>'
+LDAP_EMAIL_PROPERTY = '<%= scope.lookupvar('taiga::back::ldap_email_property') %>'
+LDAP_FULL_NAME_PROPERTY = '<%= scope.lookupvar('taiga::back::ldap_full_name_property') %>'
