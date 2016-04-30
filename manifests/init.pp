@@ -8,7 +8,6 @@ class taiga (
   $front_directory = '/srv/www/taiga-front',
   $back_user = 'taiga',
   $public_register_enabled = true,
-  $login_form_type = undef,
   $ldap_server = undef,
   $ldap_port = 389,
   $ldap_bind_dn = undef,
