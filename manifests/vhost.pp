@@ -4,6 +4,9 @@ class taiga::vhost (
   $back_directory,
   $front_directory,
   $back_user,
+  $ssl_cert = undef,
+  $ssl_key = undef,
+  $ssl_chain = undef,
 ) {
   case $protocol {
     'http': {
@@ -31,6 +34,9 @@ class taiga::vhost (
     docroot         => "${front_directory}/dist",
     manage_docroot  => false,
     ssl             => $ssl,
+    ssl_cert        => $ssl_cert,
+    ssl_key         => $ssl_key,
+    ssl_chain       => $ssl_chain,
 
     aliases         => [
       {

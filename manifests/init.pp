@@ -18,6 +18,9 @@ class taiga (
   $ldap_search_suffix = undef,
   $ldap_email_property = 'mail',
   $ldap_full_name_property = 'cn',
+  $ssl_cert = undef,
+  $ssl_key = undef,
+  $ssl_chain = undef,
 ) {
   $ldap_enable = $ldap_server ? {
     undef   => false,
@@ -60,6 +63,9 @@ class taiga (
     back_directory  => $back_directory,
     front_directory => $front_directory,
     back_user       => $back_user,
+    ssl_cert        => $ssl_cert,
+    ssl_key         => $ssl_key,
+    ssl_chain       => $ssl_chain,
   }
 
   Class['taiga::back::repo'] -> Class['taiga::vhost']
