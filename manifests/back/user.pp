@@ -6,6 +6,6 @@ class taiga::back::user {
     home   => $taiga::back::install_dir,
     system => true,
     notify => Exec['taiga-back-pip-install'],
-    shell  => '/bin/bash',
+    shell  => '/bin/sh',
   }
 }
