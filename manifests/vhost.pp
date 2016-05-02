@@ -49,19 +49,15 @@ class taiga::vhost (
       },
     ],
 
-    error_documents => [
-      {
-        'error_code' => '404',
-        'document'   => '/index.html',
-      },
-    ],
-    custom_fragment => "
+    fallbackresource => '/index.html',
+    custom_fragment  => "
 <Location /api>
     PassengerBaseURI /
     PassengerAppRoot ${back_directory}
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
     PassengerUser ${back_user}
+    FallbackResource disabled
 </Location>
 <Location /admin>
     PassengerBaseURI /
@@ -69,6 +65,7 @@ class taiga::vhost (
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
     PassengerUser ${back_user}
+    FallbackResource disabled
 
     Require ip 127.0.0.1
     Require ip ::1
