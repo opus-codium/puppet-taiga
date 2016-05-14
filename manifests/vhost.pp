@@ -56,6 +56,7 @@ class taiga::vhost (
     PassengerAppRoot ${back_directory}
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
+    PassengerPython ${back_directory}/bin/python
     PassengerUser ${back_user}
     FallbackResource disabled
 </Location>
