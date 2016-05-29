@@ -1,4 +1,4 @@
-define taiga::back::migration(
+define taiga::back::manage(
 ) {
   include taiga::back
 
