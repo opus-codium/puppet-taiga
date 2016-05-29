@@ -37,7 +37,7 @@ class taiga (
   class { 'taiga::back':
     front_hostname          => $hostname,
     front_protocol          => $protocol,
-    back_hostname           => $back_hostname,
+    back_hostname           => $hostname,
     back_protocol           => $protocol,
     secret_key              => $back_secret_key,
     db_password             => $back_db_password,
