@@ -8,6 +8,8 @@ class taiga::back (
   $db_user = 'taiga',
   $db_password,
   $user = 'taiga',
+  $repo_ensure = 'present',
+  $repo_revision = 'stable',
   $install_dir = '/srv/www/taiga-back',
   $public_register_enabled = true,
   $ldap_enable = false,

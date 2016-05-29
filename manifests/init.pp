@@ -4,6 +4,8 @@ class taiga (
   $back_db_password,
   $protocol = 'https',
   $default_language = 'en',
+  $repo_ensure = 'present',
+  $repo_revision = 'stable',
   $back_directory = '/srv/www/taiga-back',
   $front_directory = '/srv/www/taiga-front',
   $back_user = 'taiga',
@@ -26,6 +28,7 @@ class taiga (
   validate_string($back_db_password)
   validate_re($protocol, 'https?')
   validate_string($default_language)
+  validate_re($repo_ensure, ['^present$', '^latest$'])
   validate_absolute_path($back_directory)
   validate_absolute_path($front_directory)
   validate_string($back_user)
@@ -40,6 +43,8 @@ class taiga (
     back_hostname           => $hostname,
     back_protocol           => $protocol,
     default_language        => $default_language,
+    repo_ensure             => $repo_ensure,
+    repo_revision           => $repo_revision,
     install_dir             => $front_directory,
     public_register_enabled => $public_register_enabled,
     ldap_enable             => $ldap_enable,
@@ -51,6 +56,8 @@ class taiga (
     back_protocol           => $protocol,
     secret_key              => $back_secret_key,
     db_password             => $back_db_password,
+    repo_ensure             => $repo_ensure,
+    repo_revision           => $repo_revision,
     install_dir             => $back_directory,
     user                    => $back_user,
     public_register_enabled => $public_register_enabled,

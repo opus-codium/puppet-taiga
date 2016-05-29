@@ -7,10 +7,10 @@ class taiga::back::repo {
     mode   => '0755',
   } ->
   vcsrepo { $taiga::back::install_dir:
-    ensure   => present,
+    ensure   => $taiga::back::repo_ensure,
     provider => 'git',
     source   => 'https://github.com/taigaio/taiga-back.git',
-    revision => 'stable',
+    revision => $taiga::back::repo_revision,
     user     => $taiga::back::user,
     notify   => Exec['taiga-back-pip-install'],
   }
