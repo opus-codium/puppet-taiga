@@ -21,6 +21,16 @@ class taiga (
   $ssl_key = undef,
   $ssl_chain = undef,
 ) {
+  validate_string($hostname)
+  validate_string($back_secret_key)
+  validate_string($back_db_password)
+  validate_re($protocol, 'https?')
+  validate_string($default_language)
+  validate_absolute_path($back_directory)
+  validate_absolute_path($front_directory)
+  validate_string($back_user)
+  validate_bool($public_register_enabled)
+
   $ldap_enable = $ldap_server ? {
     undef   => false,
     default => true,
