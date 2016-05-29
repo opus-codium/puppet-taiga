@@ -1,5 +1,4 @@
-define taiga::back::manage(
-) {
+define taiga::back::manage {
   include taiga::back
 
   exec { "taiga-back-migration-${name}":

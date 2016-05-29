@@ -12,6 +12,5 @@ class taiga::back::repo {
     source   => 'https://github.com/taigaio/taiga-back.git',
     revision => $taiga::back::repo_revision,
     user     => $taiga::back::user,
-    notify   => Exec['taiga-back-pip-install'],
   }
 }

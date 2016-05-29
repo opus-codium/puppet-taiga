@@ -16,12 +16,4 @@ class taiga::back::env {
     creates => "${taiga::back::install_dir}/lib/python3.4/site-packages/django",
     user    => $taiga::back::user,
   }
-
-  exec { 'taiga-back-pip-install':
-    command     => "${taiga::back::install_dir}/bin/pip install -r requirements.txt",
-    cwd         => $taiga::back::install_dir,
-    refreshonly => true,
-    user        => $taiga::back::user,
-    require     => Exec['taiga-back-virtualenv'],
-  }
 }
