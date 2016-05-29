@@ -25,20 +25,20 @@ class taiga::vhost (
   file { "${back_directory}/passenger_wsgi.py":
     ensure  => present,
     owner   => 'root',
-    mode    => '755',
+    mode    => '0755',
     content => template('taiga/vhost/passenger_wsgi.py.erb'),
   }
 
   apache::vhost { $hostname:
-    port            => $port,
-    docroot         => "${front_directory}/dist",
-    manage_docroot  => false,
-    ssl             => $ssl,
-    ssl_cert        => $ssl_cert,
-    ssl_key         => $ssl_key,
-    ssl_chain       => $ssl_chain,
+    port             => $port,
+    docroot          => "${front_directory}/dist",
+    manage_docroot   => false,
+    ssl              => $ssl,
+    ssl_cert         => $ssl_cert,
+    ssl_key          => $ssl_key,
+    ssl_chain        => $ssl_chain,
 
-    aliases         => [
+    aliases          => [
       {
         alias => '/media',
         path  => "${back_directory}/media",

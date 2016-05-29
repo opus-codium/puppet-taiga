@@ -6,6 +6,9 @@ class taiga::back::dependencies {
     'FreeBSD': {
       $depends = ['python3', 'py27-virtualenvwrapper', 'libxml2', 'libxslt']
     }
+    default: {
+      fail("Unsupported operating system: ${::osfamily}")
+    }
   }
 
   package { $depends:
