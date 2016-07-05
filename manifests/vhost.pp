@@ -70,6 +70,8 @@ class taiga::vhost (
 
     Require ip 127.0.0.1
     Require ip ::1
+    Require ip ${::ipaddress}
+    Require ip ${::ipaddress6}
 </Location>
 ",
   }
