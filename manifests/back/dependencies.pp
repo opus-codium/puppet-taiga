@@ -11,7 +11,7 @@ class taiga::back::dependencies {
     }
   }
 
-  package { $depends:
+  ensure_packages($depends, {
     ensure => installed,
-  }
+  })
 }
