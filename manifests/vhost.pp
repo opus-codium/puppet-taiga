@@ -50,29 +50,33 @@ class taiga::vhost (
     ],
 
     fallbackresource => '/index.html',
-    custom_fragment  => "
+    custom_fragment  => inline_template('
 <Location /api>
     PassengerBaseURI /
-    PassengerAppRoot ${back_directory}
+    PassengerAppRoot <%= @back_directory %>
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
-    PassengerPython ${back_directory}/bin/python
-    PassengerUser ${back_user}
+    PassengerPython <%= back_directory %>/bin/python
+    PassengerUser <%= back_user%>
     FallbackResource disabled
 </Location>
 <Location /admin>
     PassengerBaseURI /
-    PassengerAppRoot ${back_directory}
+    PassengerAppRoot <%= @back_directory %>
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
-    PassengerUser ${back_user}
+    PassengerUser <%= back_user %>
     FallbackResource disabled
 
     Require ip 127.0.0.1
     Require ip ::1
-    Require ip ${::ipaddress}
-    Require ip ${::ipaddress6}
+    <%- if @ipaddress -%>
+    Require ip <%= @ipaddress %>
+    <%- end -%>
+    <%- if @ipaddress6 -%>
+    Require ip <%= @ipaddress6 %>
+    <%- end -%>
 </Location>
-",
+'),
   }
 }
