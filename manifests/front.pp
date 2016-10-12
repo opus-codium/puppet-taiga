@@ -9,6 +9,7 @@ class taiga::front (
   $default_language = 'en',
   $public_register_enabled = true,
   $ldap_enable = false,
+  $gravatar = true,
 ) {
   include taiga::front::repo
   include taiga::front::config

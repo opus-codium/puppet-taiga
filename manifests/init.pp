@@ -10,6 +10,7 @@ class taiga (
   $front_directory = '/srv/www/taiga-front',
   $back_user = 'taiga',
   $public_register_enabled = true,
+  $gravatar = true,
   $ldap_server = undef,
   $ldap_port = 389,
   $ldap_bind_dn = undef,
@@ -48,6 +49,7 @@ class taiga (
     install_dir             => $front_directory,
     public_register_enabled => $public_register_enabled,
     ldap_enable             => $ldap_enable,
+    gravatar                => $gravatar,
   }
   class { 'taiga::back':
     front_hostname          => $hostname,
