@@ -8,6 +8,8 @@
     * [Advanced configuration](#advanced-configuration)
 4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
     * [Public Classes](#public-classes)
+    * [Private Classes](#private-classes)
+    * [Defined Types](#defined-types)
 
 ## Module description
 
@@ -103,15 +105,7 @@ Instead of using the `taiga` class, rely on the `taiga::front` and `taiga::back`
 
 #### Class: `taiga`
 
-Guides the basic setup and installation of Taiga on your system.
-
-When this class is declared with the default options, Puppet:
-
-* Installs apache;
-* Installs PostgreSQL;
-* Deploys `taiga-front`;
-* Deploys `taiga-back`;
-* Setup apache to serve them.
+Installs and configure taiga-back, taiga-front and setup Apache to make the instance usable.
 
 **Parameters within `taiga`:**
 
@@ -217,6 +211,10 @@ Default: undef.
 
 #### Class: `taiga::back`
 
+Installs and configure taiga-back.
+
+**Parameters within `taiga::back`:**
+
 ##### `back_hostname`
 
 ##### `back_protocol`
@@ -319,6 +317,10 @@ Default: 'undef'
 
 #### Class: `taiga::front`
 
+Installs and configure taiga-front.
+
+**Parameters within `taiga::front`:**
+
 ##### `back_hostname`
 
 ##### `back_protocol`
@@ -361,6 +363,10 @@ Default: 'true'
 
 #### Class: `taiga::vhost`
 
+Configure an Apache Virtual Host to serve taiga-back and taiga-front.
+
+**Parameters within `taiga::vhost`:**
+
 ##### `back_directory`
 
 ##### `back_user`
@@ -383,3 +389,58 @@ Default: 'undef'
 
 Default: 'undef'
 
+### Private Classes
+
+#### Class: `taiga::back::config`
+
+Manage taiga-back configuration files.
+
+#### Class: `taiga::back::database`
+
+Setup taiga-back databse.
+
+#### Class: `taiga::back::dependencies`
+
+Ensure taiga-back dependencies are installed.
+
+#### Class: `taiga::back::env`
+
+Ensure Python's virtualenv is setup.
+
+#### Class: `taiga::back::install`
+
+Install taiga-back dependencies.
+
+#### Class: `taiga::back::ldap`
+
+Install the [`taiga-contrib-ldap-auth`](https://github.com/ensky/taiga-contrib-ldap-auth) LDAP authentication contrib.
+
+#### Class: `taiga::back::migrate`
+
+Perform post-installation operations.
+
+#### Class: `taiga::back::repo`
+
+Checkout taiga-back.
+
+#### Class: `taiga::back::seed`
+
+Perform database seeding.
+
+#### Class: `taiga::back::user`
+
+Setup the user account of the user running taiga-back.
+
+#### Class: `taiga::front::config`
+
+Manage taiga-front configuration files.
+
+#### Class: `taiga::front::repo`
+
+Checkout taiga-front.
+
+### Defined Types
+
+#### Defined type: `taiga::back::manage`
+
+Allows running actions thourgh taiga-back's `manage.py` script.
