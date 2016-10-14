@@ -1,23 +1,87 @@
-# Taiga
+# taiga
 
 ## Module description
 
 [Taiga](https://taiga.io/) is a project management platform.
 This Puppet module simplifies the configuration of Taiga in your infrastructure.
 
-### Beginning with Taiga
+## Setup
+
+### Beginning with taiga
+
+## Usage
+
+### Install a basic HTTP Taiga instance
 
 In order to install `taiga-back`, `taiga-front` and an apache virtual host, the following is enough:
 
-~~~puppet
+```puppet
+class { '::taiga':
+  hostname         => 'taiga.io',
+  protocol         => 'http',
+  back_secret_key  => 'secret',
+  back_db_password => 'secret',  # currently unused
+}
+```
+
+### Install a secured HTTPS Taiga instance
+
+```puppet
 class { '::taiga':
   hostname         => 'taiga.io',
   back_secret_key  => 'secret',
   back_db_password => 'secret',  # currently unused
+  ssl_key          => '/path/to/key.pem',
+  ssl_cert         => '/path/to/certificate.pem',
+  ssl_chain        => '/path/to/ca/chain.pem',
 }
-~~~
+```
 
-### Public Classes
+### Choosing which version to install
+
+By default, the module will install the latest stable release and keepit untouched.  If you prefer to install a given release, you can do the following:
+
+```puppet
+class { '::taiga':
+  # [...]
+  repo_revision => '2.1.0',
+}
+```
+
+If you want to track the stable branch:
+
+```puppet
+class { '::taiga':
+  # [...]
+  repo_ensure   => 'latest',
+  repo_revision => 'stable',
+}
+```
+
+If you like the danged:
+
+```puppet
+class { '::taiga':
+  # [...]
+  repo_ensure   => 'latest',
+  repo_revision => 'master',
+}
+```
+
+### Advanced configuration
+
+Instead of using the `taiga` class, rely on the `taiga::front` and `taiga::back` classes.  This allows you to have a full controll on both the front and the back, and run for example the back on a node, and servce the front from another.
+
+## Reference
+
+### Classes
+
+#### Public Classes
+
+* [`taiga`](#class-taiga)
+* [`taiga::back`](#class-taigaback)
+* [`taiga::front`](#class-taigafront)
+* [`taiga::vhost`](#class-taigavhost)
 
 #### Class: `taiga`
 
