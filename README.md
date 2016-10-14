@@ -1,17 +1,22 @@
 # taiga
 
+1. [Module Description - What the module does and why it is useful](#module-description)
+3. [Usage - Configuration options and additional functionality](#usage)
+    * [Installing a basic HTTP Taiga instance](#installing-a-basic-http-taiga-instance)
+    * [Installing a secured HTTPS Taiga instance](#installing-a-secured-https-taiga-instance)
+    * [Choosing which version to install](#choosing-which-version-to-install)
+    * [Advanced configuration](#advanced-configuration)
+4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
+    * [Classes](#classes)
+
 ## Module description
 
 [Taiga](https://taiga.io/) is a project management platform.
 This Puppet module simplifies the configuration of Taiga in your infrastructure.
 
-## Setup
-
-### Beginning with taiga
-
 ## Usage
 
-### Install a basic HTTP Taiga instance
+### Installing a basic HTTP Taiga instance
 
 In order to install `taiga-back`, `taiga-front` and an apache virtual host, the following is enough:
 
@@ -24,7 +29,7 @@ class { '::taiga':
 }
 ```
 
-### Install a secured HTTPS Taiga instance
+### Installing a secured HTTPS Taiga instance
 
 ```puppet
 class { '::taiga':
