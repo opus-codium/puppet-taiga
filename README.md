@@ -7,12 +7,12 @@
     * [Choosing which version to install](#choosing-which-version-to-install)
     * [Advanced configuration](#advanced-configuration)
 4. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-    * [Classes](#classes)
+    * [Public Classes](#public-classes)
 
 ## Module description
 
 [Taiga](https://taiga.io/) is a project management platform.
-This Puppet module simplifies the configuration of Taiga in your infrastructure.
+This Puppet module simplifies the installation and configuration of Taiga in your infrastructure.
 
 ## Usage
 
@@ -79,14 +79,27 @@ Instead of using the `taiga` class, rely on the `taiga::front` and `taiga::back`
 
 ## Reference
 
-### Classes
+* [Public classes](#public-classes)
+    * [`taiga`](#class-taiga)
+    * [`taiga::back`](#class-taigaback)
+    * [`taiga::front`](#class-taigafront)
+    * [`taiga::vhost`](#class-taigavhost)
+* [Private classes](#private-classes)
+    * `taiga::back::config`
+    * `taiga::back::database`
+    * `taiga::back::dependencies`
+    * `taiga::back::env`
+    * `taiga::back::install`
+    * `taiga::back::ldap`
+    * `taiga::back::manage`
+    * `taiga::back::migrate`
+    * `taiga::back::repo`
+    * `taiga::back::seed`
+    * `taiga::back::user`
+    * `taiga::front::config`
+    * `taiga::front::repo`
 
-#### Public Classes
-
-* [`taiga`](#class-taiga)
-* [`taiga::back`](#class-taigaback)
-* [`taiga::front`](#class-taigafront)
-* [`taiga::vhost`](#class-taigavhost)
+### Public Classes
 
 #### Class: `taiga`
 
@@ -100,61 +113,39 @@ When this class is declared with the default options, Puppet:
 * Deploys `taiga-back`;
 * Setup apache to serve them.
 
-##### `hostname`
-
-Sets the hostname that will be used to reach the Taiga instance.
-
-##### `back_secret_key`
-
-A secret key passed to the `SECRET_KEY` setting in taiga-back configuration. (A 60 characters random string should be a good start, you can generate one using `apg -a1 -m60`).
+**Parameters within `taiga`:**
 
 ##### `back_db_password`
 
 Sets the database password.  It is currently not used but still has to be provided.
 
-##### `protocol`
-
-Determines the protocol to be used, one of 'http' or 'https'.
-Default: 'https'
-
-##### `default_language`
-
-Default: 'en'
-
-##### `repo_revision`
-
-Determines which version of Taiga should be deployed.
-Can be a tag (e.g. '3.0.0') or a branch name (e.g. 'master')
-Default: 'stable'.
-
-##### `repo_ensure`
-
-Determines if Taiga's repository should be checked to get a new version.  Can be set to 'latest' or 'present'.
-Default: 'present'.
-
 ##### `back_directory`
 
 Default '/srv/www/taiga-back'.
 
-##### `front_directory`
+##### `back_secret_key`
 
-Default: '/srv/www/taiga-front'
+A secret key passed to the `SECRET_KEY` setting in taiga-back configuration. (A 60 characters random string should be a good start, you can generate one using `apg -a1 -m60`).
 
 ##### `back_user`
 
 Default: 'taiga'
 
-##### `public_register_enabled`
+##### `default_language`
 
-Default: true
+Default: 'en'
 
-##### `ldap_server`
+##### `front_directory`
 
-Default: undef.
+Default: '/srv/www/taiga-front'
 
-##### `ldap_port`
+##### `gravatar`
 
-Default: 389.
+Default: 'true'
+
+##### `hostname`
+
+Sets the hostname that will be used to reach the Taiga instance.
 
 ##### `ldap_bind_dn`
 
@@ -163,6 +154,18 @@ Default: undef.
 ##### `ldap_bind_password`
 
 Default: undef.
+
+##### `ldap_email_property`
+
+Default: 'mail'
+
+##### `ldap_full_name_property`
+
+Default: 'cn'
+
+##### `ldap_port`
+
+Default: 389.
 
 ##### `ldap_search_base`
 
@@ -176,15 +179,35 @@ Default: 'uid'
 
 Default: undef.
 
-##### `ldap_email_property`
+##### `ldap_server`
 
-Default: 'mail'
+Default: undef.
 
-##### `ldap_full_name_property`
+##### `protocol`
 
-Default: 'cn'
+Determines the protocol to be used, one of 'http' or 'https'.
+Default: 'https'
+
+##### `public_register_enabled`
+
+Default: true
+
+##### `repo_ensure`
+
+Determines if Taiga's repository should be checked to get a new version.  Can be set to 'latest' or 'present'.
+Default: 'present'.
+
+##### `repo_revision`
+
+Determines which version of Taiga should be deployed.
+Can be a tag (e.g. '3.0.0') or a branch name (e.g. 'master')
+Default: 'stable'.
 
 ##### `ssl_cert`
+
+Default: undef.
+
+##### `ssl_chain`
 
 Default: undef.
 
@@ -192,7 +215,171 @@ Default: undef.
 
 Default: undef.
 
+#### Class: `taiga::back`
+
+##### `back_hostname`
+
+##### `back_protocol`
+
+##### `db_name`
+
+Default: 'taiga'
+
+##### `db_password`
+
+##### `db_user`
+
+Default: 'taiga'
+
+##### `email_host`
+
+Default: 'localhost'
+
+##### `email_port`
+
+Default: '25'
+
+##### `email_use_tls`
+
+Default: 'false'
+
+##### `email_user`
+
+Default: 'undef'
+
+##### `front_hostname`
+
+##### `front_protocol`
+
+##### `install_dir`
+
+Default: '/srv/www/taiga-back'
+
+##### `ldap_bind_dn`
+
+Default: 'undef'
+
+##### `ldap_bind_password`
+
+Default: 'undef'
+
+##### `ldap_email_property`
+
+Default: 'mail'
+
+##### `ldap_enable`
+
+Default: 'false'
+
+##### `ldap_full_name_property`
+
+Default: 'cn'
+
+##### `ldap_port`
+
+Default: '389'
+
+##### `ldap_search_base`
+
+Default: 'ou=people,dc=example,dc=com'
+
+##### `ldap_search_property`
+
+Default: 'uid'
+
+##### `ldap_search_suffix`
+
+Default: 'undef'
+
+##### `ldap_server`
+
+Default: 'undef'
+
+##### `public_register_enabled`
+
+Default: 'true'
+
+##### `repo_ensure`
+
+Default: 'present'
+
+##### `repo_revision`
+
+Default: 'stable'
+
+##### `secret_key`
+
+##### `user`
+
+Default: 'taiga'
+
+##### `email_password`
+
+Default: 'undef'
+
+#### Class: `taiga::front`
+
+##### `back_hostname`
+
+##### `back_protocol`
+
+##### `default_language`
+
+Default: 'en'
+
+##### `events`
+
+Default: 'false'
+
+##### `install_dir`
+
+Default: '/srv/www/taiga-front'
+
+##### `ldap_enable`
+
+Default: 'false'
+
+##### `public_register_enabled`
+
+Default: 'true'
+
+##### `repo_ensure`
+
+Default: 'present'
+
+##### `repo_revision`
+
+Default: 'stable'
+
+##### `user`
+
+Default: 'nobody'
+
+##### `gravatar`
+
+Default: 'true'
+
+#### Class: `taiga::vhost`
+
+##### `back_directory`
+
+##### `back_user`
+
+##### `front_directory`
+
+##### `hostname`
+
+##### `protocol`
+
+##### `ssl_cert`
+
+Default: 'undef'
+
+##### `ssl_key`
+
+Default: 'undef'
+
 ##### `ssl_chain`
 
-Default: undef.
+Default: 'undef'
 
