@@ -87,19 +87,20 @@ Instead of using the `taiga` class, rely on the `taiga::front` and `taiga::back`
     * [`taiga::front`](#class-taigafront)
     * [`taiga::vhost`](#class-taigavhost)
 * [Private classes](#private-classes)
-    * `taiga::back::config`
-    * `taiga::back::database`
-    * `taiga::back::dependencies`
-    * `taiga::back::env`
-    * `taiga::back::install`
-    * `taiga::back::ldap`
-    * `taiga::back::manage`
-    * `taiga::back::migrate`
-    * `taiga::back::repo`
-    * `taiga::back::seed`
-    * `taiga::back::user`
-    * `taiga::front::config`
-    * `taiga::front::repo`
+    * [`taiga::back::config`](#class-taigabackconfig)
+    * [`taiga::back::database`](#class-taigabackdatabase)
+    * [`taiga::back::dependencies`](#class-taigabackdependencies)
+    * [`taiga::back::env`](#class-taigabackenv)
+    * [`taiga::back::install`](#class-taigabackinstall)
+    * [`taiga::back::ldap`](#class-taigabackldap)
+    * [`taiga::back::migrate`](#class-taigabackmigrate)
+    * [`taiga::back::repo`](#class-taigabackrepo)
+    * [`taiga::back::seed`](#class-taigabackseed)
+    * [`taiga::back::user`](#class-taigabackuser)
+    * [`taiga::front::config`](#class-taigafrontconfig)
+    * [`taiga::front::repo`](#class-taigafrontrepo)
+* [Defined Types](#defined-types)
+    * [`taiga::back::manage`](#defined-type-taigabackmanage)
 
 ### Public Classes
 
