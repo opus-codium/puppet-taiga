@@ -38,35 +38,35 @@ class taiga::back (
   include taiga::back::migrate
   include taiga::back::seed
 
-  Class['taiga::back::user'] ->
-  Class['taiga::back::dependencies'] ->
-  Class['taiga::back::repo'] ->
-  Class['taiga::back::env'] ->
-  Class['taiga::back::install'] ->
-  Class['taiga::back::config'] ->
-  Class['taiga::back::database'] ->
-  Class['taiga::back::migrate'] ->
-  Class['taiga::back::seed']
+  Class['Taiga::Back::User'] ->
+  Class['Taiga::Back::Dependencies'] ->
+  Class['Taiga::Back::Repo'] ->
+  Class['Taiga::Back::Env'] ->
+  Class['Taiga::Back::Install'] ->
+  Class['Taiga::Back::Config'] ->
+  Class['Taiga::Back::Database'] ->
+  Class['Taiga::Back::Migrate'] ->
+  Class['Taiga::Back::Seed']
 
-  Class['taiga::back::repo'] ~>
-  Class['taiga::back::install']
+  Class['Taiga::Back::Repo'] ~>
+  Class['Taiga::Back::Install']
 
-  Class['taiga::back::repo'] ~>
-  Class['taiga::back::migrate']
+  Class['Taiga::Back::Repo'] ~>
+  Class['Taiga::Back::Migrate']
 
-  Class['taiga::back::database'] ~>
-  Class['taiga::back::seed']
+  Class['Taiga::Back::Database'] ~>
+  Class['Taiga::Back::Seed']
 
   if $ldap_enable {
     include taiga::back::ldap
 
-    Class['taiga::back::env'] ->
-    Class['taiga::back::ldap']
+    Class['Taiga::Back::Env'] ->
+    Class['Taiga::Back::Ldap']
   }
 
-  Class['taiga::back::config'] ~>
+  Class['Taiga::Back::Config'] ~>
   Class['Apache::Service']
 
-  Class['taiga::back::install'] ~>
+  Class['Taiga::Back::Install'] ~>
   Class['Apache::Service']
 }

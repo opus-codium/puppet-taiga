@@ -86,5 +86,6 @@ class taiga (
     ssl_chain       => $ssl_chain,
   }
 
-  Class['taiga::back::repo'] -> Class['taiga::vhost']
+  Class['Taiga::Back::Repo'] ->
+  Class['Taiga::Vhost']
 }
