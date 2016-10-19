@@ -65,8 +65,8 @@ class taiga::back (
   }
 
   Class['taiga::back::config'] ~>
-  Service['httpd']
+  Class['Apache::Service']
 
   Class['taiga::back::install'] ~>
-  Service['httpd']
+  Class['Apache::Service']
 }
