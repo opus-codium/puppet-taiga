@@ -65,7 +65,7 @@ class { '::taiga':
 }
 ```
 
-If you like the danged:
+If you like the danger:
 
 ```puppet
 class { '::taiga':
