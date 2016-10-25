@@ -106,7 +106,7 @@ Instead of using the `taiga` class, rely on the `taiga::front` and `taiga::back`
 
 #### Class: `taiga`
 
-Installs and configure taiga-back, taiga-front and setup Apache to make the instance usable.
+Installs and configure [taiga-back](https://github.com/taigaio/taiga-back), [taiga-front-dist](https://github.com/taigaio/taiga-front-dist) and setup Apache to make the instance usable.
 
 **Parameters within `taiga`:**
 
@@ -212,7 +212,7 @@ Default: undef.
 
 #### Class: `taiga::back`
 
-Installs and configure taiga-back.
+Installs and configure [taiga-back](https://github.com/taigaio/taiga-back).
 
 **Parameters within `taiga::back`:**
 
@@ -318,7 +318,7 @@ Default: 'undef'
 
 #### Class: `taiga::front`
 
-Installs and configure taiga-front.
+Installs and configure [taiga-front-dist](https://github.com/taigaio/taiga-front-dist).
 
 **Parameters within `taiga::front`:**
 
