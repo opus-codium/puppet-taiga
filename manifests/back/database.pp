@@ -1,5 +1,6 @@
 class taiga::back::database {
   include taiga::back
+  include postgresql::server
 
   postgresql::server::db { $taiga::back::db_name:
     user     => $taiga::back::db_user,
