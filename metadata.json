@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Opus Codium",
   "summary": "Install and configure Taiga.io",
-  "license": "Apache 2.0",
+  "license": "MIT",
   "source": "https://github.com/opus-codium/puppet-taiga",
   "project_page": null,
   "issues_url": null,
