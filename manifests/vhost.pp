@@ -58,8 +58,8 @@ class taiga::vhost (
     PassengerAppRoot <%= @back_directory %>
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
-    PassengerPython <%= back_directory %>/bin/python
-    PassengerUser <%= back_user%>
+    PassengerPython <%= @back_directory %>/bin/python
+    PassengerUser <%= @back_user %>
     FallbackResource disabled
 </Location>
 <Location /admin>
@@ -67,7 +67,7 @@ class taiga::vhost (
     PassengerAppRoot <%= @back_directory %>
     PassengerAppType wsgi
     PassengerStartupFile passenger_wsgi.py
-    PassengerUser <%= back_user %>
+    PassengerUser <%= @back_user %>
     FallbackResource disabled
 
     Require ip 127.0.0.1
