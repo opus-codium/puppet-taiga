@@ -1,5 +1,5 @@
 define taiga::back::manage {
-  include taiga::back
+  include ::taiga::back
 
   exec { "taiga-back-migration-${name}":
     command     => "${taiga::back::install_dir}/bin/python manage.py ${name}",

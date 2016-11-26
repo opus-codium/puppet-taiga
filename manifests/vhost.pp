@@ -29,7 +29,7 @@ class taiga::vhost (
     content => template('taiga/vhost/passenger_wsgi.py.erb'),
   }
 
-  include apache
+  include ::apache
 
   apache::vhost { $hostname:
     port             => $port,

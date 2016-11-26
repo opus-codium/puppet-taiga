@@ -1,5 +1,5 @@
 class taiga::front::config {
-  include taiga::front
+  include ::taiga::front
 
   $login_form_type = $taiga::front::ldap_enable ? {
     true    => 'ldap',

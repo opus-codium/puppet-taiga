@@ -1,5 +1,5 @@
 class taiga::back::user {
-  include taiga::back
+  include ::taiga::back
 
   user { $taiga::back::user:
     ensure => present,

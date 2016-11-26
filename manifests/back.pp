@@ -28,15 +28,15 @@ class taiga::back (
   $email_user = undef,
   $email_password = undef,
 ) {
-  include taiga::back::user
-  include taiga::back::dependencies
-  include taiga::back::repo
-  include taiga::back::env
-  include taiga::back::install
-  include taiga::back::config
-  include taiga::back::database
-  include taiga::back::migrate
-  include taiga::back::seed
+  include ::taiga::back::user
+  include ::taiga::back::dependencies
+  include ::taiga::back::repo
+  include ::taiga::back::env
+  include ::taiga::back::install
+  include ::taiga::back::config
+  include ::taiga::back::database
+  include ::taiga::back::migrate
+  include ::taiga::back::seed
 
   Class['Taiga::Back::User'] ->
   Class['Taiga::Back::Dependencies'] ->
@@ -58,7 +58,7 @@ class taiga::back (
   Class['Taiga::Back::Seed']
 
   if $ldap_enable {
-    include taiga::back::ldap
+    include ::taiga::back::ldap
 
     Class['Taiga::Back::Env'] ->
     Class['Taiga::Back::Ldap']

@@ -1,5 +1,5 @@
 class taiga::back::env {
-  include taiga::back
+  include ::taiga::back
 
   $virtualenv = $::osfamily ? {
     'Debian'  => '/usr/bin/virtualenv',

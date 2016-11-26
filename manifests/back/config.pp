@@ -1,5 +1,5 @@
 class taiga::back::config {
-  include taiga::back
+  include ::taiga::back
 
   concat { "${taiga::back::install_dir}/settings/local.py":
     ensure => present,

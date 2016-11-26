@@ -1,5 +1,5 @@
 class taiga::back::ldap {
-  include taiga::back
+  include ::taiga::back
 
   exec { 'taiga_contrib_ldap_auth-deploy':
     command => "${taiga::back::install_dir}/bin/pip install git+https://github.com/ensky/taiga-contrib-ldap-auth.git",
