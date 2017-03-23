@@ -16,6 +16,7 @@ class taiga::back::dependencies {
         'libjpeg-dev',
         'libncurses5-dev',
         'libpq-dev',
+        'libssl-dev',
         'libtool',
         'libxml2-dev',
         'libxslt1-dev',
