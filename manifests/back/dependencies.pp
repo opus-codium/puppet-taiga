@@ -1,10 +1,41 @@
 class taiga::back::dependencies {
   case $::osfamily {
     'Debian': {
-      $depends = ['build-essential', 'binutils-doc', 'autoconf', 'flex', 'bison', 'libjpeg-dev', 'libfreetype6-dev', 'libzmq3-dev', 'libgdbm-dev', 'libncurses5-dev', 'automake', 'libtool', 'libffi-dev', 'curl', 'gettext', 'python3', 'python3-pip', 'python-dev', 'python3-dev', 'python-pip', 'virtualenvwrapper', 'libxml2-dev', 'libxslt1-dev', 'libpq-dev']
+      $depends = [
+        'autoconf',
+        'automake',
+        'binutils-doc',
+        'bison',
+        'build-essential',
+        'curl',
+        'flex',
+        'gettext',
+        'libffi-dev',
+        'libfreetype6-dev',
+        'libgdbm-dev',
+        'libjpeg-dev',
+        'libncurses5-dev',
+        'libpq-dev',
+        'libssl-dev',
+        'libtool',
+        'libxml2-dev',
+        'libxslt1-dev',
+        'libzmq3-dev',
+        'python-dev',
+        'python-pip',
+        'python3',
+        'python3-dev',
+        'python3-pip',
+        'virtualenvwrapper',
+      ]
     }
     'FreeBSD': {
-      $depends = ['python3', 'py27-virtualenvwrapper', 'libxml2', 'libxslt']
+      $depends = [
+        'libxml2',
+        'libxslt',
+        'py27-virtualenvwrapper',
+        'python3',
+      ]
     }
     default: {
       fail("Unsupported operating system: ${::osfamily}")
