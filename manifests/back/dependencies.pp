@@ -25,7 +25,7 @@ class taiga::back::dependencies {
         'virtualenvwrapper',
         'libxml2-dev',
         'libxslt1-dev',
-        'libpq-dev'
+        'libpq-dev',
       ]
     }
     'FreeBSD': {
@@ -33,7 +33,7 @@ class taiga::back::dependencies {
         'python3',
         'py27-virtualenvwrapper',
         'libxml2',
-        'libxslt'
+        'libxslt',
       ]
     }
     default: {
