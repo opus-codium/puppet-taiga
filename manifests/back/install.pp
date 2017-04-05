@@ -20,6 +20,7 @@ class taiga::back::install {
     cwd         => $taiga::back::install_dir,
     refreshonly => true,
     user        => $taiga::back::user,
+    timeout     => 0,
   }
 
   Exec['taiga-back-upgrade-pip'] ->
