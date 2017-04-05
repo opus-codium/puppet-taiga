@@ -27,7 +27,10 @@ class taiga::back (
   $email_port = 25,
   $email_user = undef,
   $email_password = undef,
-) {
+  $python_path = $taiga::back::params::python_path,
+  $python_version = $taiga::back::params::python_version,
+  $virtualenv = $taiga::back::params::virtualenv,
+) inherits taiga::back::params {
   include ::taiga::back::user
   include ::taiga::back::dependencies
   include ::taiga::back::repo

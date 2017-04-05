@@ -1,19 +1,9 @@
 class taiga::back::env {
   include ::taiga::back
 
-  $virtualenv = $::osfamily ? {
-    'Debian'  => '/usr/bin/virtualenv',
-    'FreeBSD' => '/usr/local/bin/virtualenv',
-  }
-
-  $python3 = $::osfamily ? {
-    'Debian'  => '/usr/bin/python3.4',
-    'FreeBSD' => '/usr/local/bin/python3.4',
-  }
-
   exec { 'taiga-back-virtualenv':
-    command => "${virtualenv} -p ${python3} ${taiga::back::install_dir}",
-    creates => "${taiga::back::install_dir}/lib/python3.4/site-packages/django",
+    command => "${taiga::back::virtualenv} -p ${taiga::back::python_path}${taiga::back::python_version} ${taiga::back::install_dir}",
+    creates => "${taiga::back::install_dir}/lib/python${taiga::back::python_version}/site-packages/django",
     user    => $taiga::back::user,
   }
 }
