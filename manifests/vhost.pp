@@ -30,6 +30,7 @@ class taiga::vhost (
   }
 
   include ::apache
+  include ::apache::mod::passenger
 
   apache::vhost { $hostname:
     port             => $port,
