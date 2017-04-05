@@ -316,6 +316,18 @@ Default: 'taiga'
 
 Default: 'undef'
 
+##### `python_path`
+
+Default: operating-system dependant
+
+##### `python_version`
+
+Default: operating-system dependant
+
+##### `virtualenv`
+
+Default: operating-system dependant
+
 #### Class: `taiga::front`
 
 Installs and configure [taiga-front-dist](https://github.com/taigaio/taiga-front-dist).
