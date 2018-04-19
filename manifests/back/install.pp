@@ -23,7 +23,7 @@ class taiga::back::install {
     timeout     => 0,
   }
 
-  Exec['taiga-back-upgrade-pip'] ->
-  Exec['taiga-back-upgrade-setuptools'] ->
-  Exec['taiga-back-pip-install']
+  Exec['taiga-back-upgrade-pip']
+  -> Exec['taiga-back-upgrade-setuptools']
+  -> Exec['taiga-back-pip-install']
 }

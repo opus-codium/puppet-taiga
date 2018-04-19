@@ -4,9 +4,9 @@ class taiga::back (
   $back_hostname,
   $back_protocol,
   $secret_key,
+  $db_password,
   $db_name = 'taiga',
   $db_user = 'taiga',
-  $db_password,
   $user = 'taiga',
   $repo_ensure = 'present',
   $repo_revision = 'stable',
@@ -41,35 +41,35 @@ class taiga::back (
   include ::taiga::back::migrate
   include ::taiga::back::seed
 
-  Class['Taiga::Back::User'] ->
-  Class['Taiga::Back::Dependencies'] ->
-  Class['Taiga::Back::Repo'] ->
-  Class['Taiga::Back::Env'] ->
-  Class['Taiga::Back::Install'] ->
-  Class['Taiga::Back::Config'] ->
-  Class['Taiga::Back::Database'] ->
-  Class['Taiga::Back::Migrate'] ->
-  Class['Taiga::Back::Seed']
+  Class['Taiga::Back::User']
+  -> Class['Taiga::Back::Dependencies']
+  -> Class['Taiga::Back::Repo']
+  -> Class['Taiga::Back::Env']
+  -> Class['Taiga::Back::Install']
+  -> Class['Taiga::Back::Config']
+  -> Class['Taiga::Back::Database']
+  -> Class['Taiga::Back::Migrate']
+  -> Class['Taiga::Back::Seed']
 
-  Class['Taiga::Back::Repo'] ~>
-  Class['Taiga::Back::Install']
+  Class['Taiga::Back::Repo']
+  ~> Class['Taiga::Back::Install']
 
-  Class['Taiga::Back::Repo'] ~>
-  Class['Taiga::Back::Migrate']
+  Class['Taiga::Back::Repo']
+  ~> Class['Taiga::Back::Migrate']
 
-  Class['Taiga::Back::Database'] ~>
-  Class['Taiga::Back::Seed']
+  Class['Taiga::Back::Database']
+  ~> Class['Taiga::Back::Seed']
 
   if $ldap_enable {
     include ::taiga::back::ldap
 
-    Class['Taiga::Back::Env'] ->
-    Class['Taiga::Back::Ldap']
+    Class['Taiga::Back::Env']
+    ~> Class['Taiga::Back::Ldap']
   }
 
-  Class['Taiga::Back::Config'] ~>
-  Class['Apache::Service']
+  Class['Taiga::Back::Config']
+  ~> Class['Apache::Service']
 
-  Class['Taiga::Back::Install'] ~>
-  Class['Apache::Service']
+  Class['Taiga::Back::Install']
+  ~> Class['Apache::Service']
 }

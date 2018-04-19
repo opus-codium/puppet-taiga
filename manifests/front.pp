@@ -14,6 +14,6 @@ class taiga::front (
   include ::taiga::front::repo
   include ::taiga::front::config
 
-  Class['Taiga::Front::Repo'] ->
-  Class['Taiga::Front::Config']
+  Class['Taiga::Front::Repo']
+  -> Class['Taiga::Front::Config']
 }
