@@ -1,0 +1,4 @@
+---
+.travis.yml:
+  test_with_debian_puppet:
+    stretch: true
