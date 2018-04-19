@@ -5,8 +5,8 @@ class taiga::back::repo {
     ensure => directory,
     owner  => $taiga::back::user,
     mode   => '0755',
-  } ->
-  vcsrepo { $taiga::back::install_dir:
+  }
+  -> vcsrepo { $taiga::back::install_dir:
     ensure   => $taiga::back::repo_ensure,
     provider => 'git',
     source   => 'https://github.com/taigaio/taiga-back.git',
