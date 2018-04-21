@@ -1,0 +1,12 @@
+---
+Metrics/LineLength:
+  Description: People have wide screens, use them.
+  Max: 200
+Metrics/BlockLength:
+  Enabled: false
+Style/TrailingCommaInHashLiteral:
+  Description: Be consistent with Puppet's style
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInArguments:
+  Description: Be consistent with Puppet's style
+  EnforcedStyleForMultiline: comma
