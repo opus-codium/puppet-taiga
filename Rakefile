@@ -1,6 +1,6 @@
 require 'puppetlabs_spec_helper/rake_tasks'
 
-PuppetLint.configuration.log_format = '%{path}:%{line}:%{check}:%{KIND}:%{message}'
+PuppetLint.configuration.log_format = '%{path}:%{line}:%{check}:%{KIND}:%{message}' # rubocop:disable Style/FormatStringToken
 PuppetLint.configuration.fail_on_warnings = true
 PuppetLint.configuration.send('disable_140chars')
 PuppetLint.configuration.send('disable_documentation')

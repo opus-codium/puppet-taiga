@@ -1,11 +1,12 @@
 ---
 language: "ruby"
-script: "bundle exec rake validate lint spec"
+script: "bundle exec rake rubocop validate lint spec"
 rvm:
   - 2.3
   - 2.4
   - 2.5
 env:
+  - PUPPET_VERSION='4.8.2'
   - PUPPET_VERSION='~> 4.0'
   - PUPPET_VERSION='~> 5.0'
 notifications:
