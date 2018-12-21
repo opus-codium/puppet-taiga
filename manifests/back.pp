@@ -58,6 +58,7 @@ class taiga::back (
   ~> Class['Taiga::Back::Migrate']
 
   Class['Taiga::Back::Database']
+  ~> Class['Taiga::Back::Migrate']
   ~> Class['Taiga::Back::Seed']
 
   if $ldap_enable {
