@@ -7,6 +7,7 @@ group :test do
   gem 'facter', (ENV['FACTER_GEM_VERSION'] || '~> 2.0'),           require: false
   gem 'puppet-lint-classes_and_types_beginning_with_digits-check', require: false
   gem 'puppet-lint-leading_zero-check',                            require: false
+  gem 'puppet-lint-param-types',                                   require: false
   gem 'puppet-lint-trailing_comma-check',                          require: false
   gem 'puppet-lint-unquoted_string-check',                         require: false
   gem 'puppet-lint-variable_contains_upcase',                      require: false

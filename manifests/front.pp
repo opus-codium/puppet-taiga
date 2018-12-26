@@ -1,15 +1,15 @@
 class taiga::front (
-  $back_hostname,
-  $back_protocol,
-  $events = false,
-  $user = 'nobody',
-  $repo_ensure = 'present',
-  $repo_revision = 'stable',
-  $install_dir = '/srv/www/taiga-front',
-  $default_language = 'en',
-  $public_register_enabled = true,
-  $ldap_enable = false,
-  $gravatar = true,
+  String $back_hostname,
+  String $back_protocol,
+  Boolean $events = false,
+  String $user = 'nobody',
+  String $repo_ensure = 'present',
+  String $repo_revision = 'stable',
+  String $install_dir = '/srv/www/taiga-front',
+  String $default_language = 'en',
+  Boolean $public_register_enabled = true,
+  Boolean $ldap_enable = false,
+  Boolean $gravatar = true,
 ) {
   include ::taiga::front::repo
   include ::taiga::front::config
