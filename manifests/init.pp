@@ -1,40 +1,29 @@
 class taiga (
-  $hostname,
-  $back_secret_key,
-  $back_db_password,
-  $protocol = 'https',
-  $default_language = 'en',
-  $repo_ensure = 'present',
-  $repo_revision = 'stable',
-  $back_directory = '/srv/www/taiga-back',
-  $front_directory = '/srv/www/taiga-front',
-  $back_user = 'taiga',
-  $public_register_enabled = true,
-  $gravatar = true,
-  $ldap_server = undef,
-  $ldap_port = 389,
-  $ldap_bind_dn = undef,
-  $ldap_bind_password = undef,
-  $ldap_search_base = 'ou=people,dc=example,dc=com',
-  $ldap_search_property = 'uid',
-  $ldap_search_suffix = undef,
-  $ldap_email_property = 'mail',
-  $ldap_full_name_property = 'cn',
-  $ssl_cert = undef,
-  $ssl_key = undef,
-  $ssl_chain = undef,
+  String[1]                      $hostname,
+  String[1]                      $back_secret_key,
+  String[1]                      $back_db_password,
+  Enum['http', 'https']          $protocol = 'https',
+  String[2, 2]                   $default_language = 'en',
+  Enum['present', 'latest']      $repo_ensure = 'present',
+  String[1]                      $repo_revision = 'stable',
+  Stdlib::Absolutepath           $back_directory = '/srv/www/taiga-back',
+  Stdlib::Absolutepath           $front_directory = '/srv/www/taiga-front',
+  String[1]                      $back_user = 'taiga',
+  Boolean                        $public_register_enabled = true,
+  Boolean                        $gravatar = true,
+  Optional[String[1]]            $ldap_server = undef,
+  Integer                        $ldap_port = 389,
+  Optional[String[1]]            $ldap_bind_dn = undef,
+  Optional[String[1]]            $ldap_bind_password = undef,
+  String[1]                      $ldap_search_base = 'ou=people,dc=example,dc=com',
+  String[1]                      $ldap_search_property = 'uid',
+  Optional[String[1]]            $ldap_search_suffix = undef,
+  String[1]                      $ldap_email_property = 'mail',
+  String[1]                      $ldap_full_name_property = 'cn',
+  Optional[Stdlib::Absolutepath] $ssl_cert = undef,
+  Optional[Stdlib::Absolutepath] $ssl_key = undef,
+  Optional[Stdlib::Absolutepath] $ssl_chain = undef,
 ) {
-  validate_string($hostname)
-  validate_string($back_secret_key)
-  validate_string($back_db_password)
-  validate_re($protocol, 'https?')
-  validate_string($default_language)
-  validate_re($repo_ensure, ['^present$', '^latest$'])
-  validate_absolute_path($back_directory)
-  validate_absolute_path($front_directory)
-  validate_string($back_user)
-  validate_bool($public_register_enabled)
-
   $ldap_enable = $ldap_server ? {
     undef   => false,
     default => true,

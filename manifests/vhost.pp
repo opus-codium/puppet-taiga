@@ -1,12 +1,12 @@
 class taiga::vhost (
-  $protocol,
-  $hostname,
-  $back_directory,
-  $front_directory,
-  $back_user,
-  $ssl_cert = undef,
-  $ssl_key = undef,
-  $ssl_chain = undef,
+  Enum['http', 'https'] $protocol,
+  String[1]             $hostname,
+  Stdlib::Absolutepath  $back_directory,
+  Stdlib::Absolutepath  $front_directory,
+  String[1]             $back_user,
+  Optional[String[1]]   $ssl_cert = undef,
+  Optional[String[1]]   $ssl_key = undef,
+  Optional[String[1]]   $ssl_chain = undef,
 ) {
   case $protocol {
     'http': {
