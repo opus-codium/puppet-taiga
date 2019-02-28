@@ -1,5 +1,7 @@
 # taiga
 
+[![Build Status](https://travis-ci.com/opus-codium/puppet-taiga.svg?branch=master)](https://travis-ci.com/opus-codium/puppet-taiga)
+
 1. [Module Description - What the module does and why it is useful](#module-description)
 3. [Usage - Configuration options and additional functionality](#usage)
     * [Installing a basic HTTP Taiga instance](#installing-a-basic-http-taiga-instance)
