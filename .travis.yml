@@ -9,10 +9,10 @@ matrix:
     rvm: "2.3.3"
     env: PUPPET_VERSION='4.8.2'
   - name: "Puppet 5"
-    rvm: "2.4.4"
+    rvm: "2.4.5"
     env: PUPPET_VERSION='~> 5.0'
   - name: "Puppet 6"
-    rvm: "2.5.1"
+    rvm: "2.5.3"
     env: PUPPET_VERSION='~> 6.0'
 notifications:
   email:
