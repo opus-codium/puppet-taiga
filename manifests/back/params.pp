@@ -9,6 +9,9 @@ class taiga::back::params {
         'stretch': {
           $python_version = '3.5'
         }
+        'buster': {
+          $python_version = '3.7'
+        }
         default: {
           fail("unsupported lsbdistcodename ${::lsbdistcodename}")
         }
