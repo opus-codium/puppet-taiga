@@ -33,7 +33,7 @@ class taiga::back::dependencies {
       $depends = [
         'libxml2',
         'libxslt',
-        'py27-virtualenvwrapper',
+        'py37-virtualenvwrapper',
         'python3',
       ]
     }
