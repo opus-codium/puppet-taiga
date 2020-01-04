@@ -1,5 +1,5 @@
 class taiga::back::install {
-  include ::taiga::back
+  assert_private()
 
   exec { 'taiga-back-upgrade-pip':
     command     => "${taiga::back::install_dir}/bin/pip install --upgrade pip",
