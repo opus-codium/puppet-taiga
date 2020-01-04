@@ -1,3 +1,6 @@
+# @summary Manage Taiga back LDAP configuration
+#
+# @api private
 class taiga::back::ldap {
   assert_private()
 

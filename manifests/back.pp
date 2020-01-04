@@ -1,3 +1,36 @@
+# @summary Install Taiga back
+#
+# @param front_hostname
+# @param front_protocol
+# @param back_hostname
+# @param back_protocol
+# @param secret_key
+# @param db_password
+# @param db_name
+# @param db_user
+# @param user
+# @param repo_ensure
+# @param repo_revision
+# @param install_dir
+# @param public_register_enabled
+# @param ldap_enable
+# @param ldap_server
+# @param ldap_port
+# @param ldap_bind_dn
+# @param ldap_bind_password
+# @param ldap_search_base
+# @param ldap_search_property
+# @param ldap_search_suffix
+# @param ldap_email_property
+# @param ldap_full_name_property
+# @param email_use_tls
+# @param email_host
+# @param email_port
+# @param email_user
+# @param email_password
+# @param python_path
+# @param python_version
+# @param virtualenv
 class taiga::back (
   String[1]                  $front_hostname,
   Enum['http', 'https']      $front_protocol,

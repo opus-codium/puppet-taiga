@@ -1,3 +1,6 @@
+# @summary Configure Taiga back virtualenv
+#
+# @api private
 class taiga::back::env {
   assert_private()
 

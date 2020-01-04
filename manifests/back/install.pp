@@ -1,3 +1,6 @@
+# @summary Install Taiga back
+#
+# @api private
 class taiga::back::install {
   assert_private()
 

@@ -1,3 +1,6 @@
+# @summary Manage the Taiga back user
+#
+# @api private
 class taiga::back::user {
   assert_private()
 

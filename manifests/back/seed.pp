@@ -1,3 +1,6 @@
+# @summary Seed Taiga back
+#
+# @api private
 class taiga::back::seed {
   assert_private()
 
