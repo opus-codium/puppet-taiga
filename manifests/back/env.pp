@@ -1,5 +1,5 @@
 class taiga::back::env {
-  include ::taiga::back
+  assert_private()
 
   exec { 'taiga-back-virtualenv':
     command => "${taiga::back::virtualenv} -p ${taiga::back::python_path}${taiga::back::python_version} ${taiga::back::install_dir}",

@@ -1,5 +1,5 @@
 class taiga::back::repo {
-  include ::taiga::back
+  assert_private()
 
   file { $taiga::back::install_dir:
     ensure => directory,

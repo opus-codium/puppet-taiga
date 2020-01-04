@@ -5,6 +5,7 @@ class taiga::back (
   Enum['http', 'https']      $back_protocol,
   String[1]                  $secret_key,
   String[1]                  $db_password,
+  Array[String[1]]           $dependencies,
   String[1]                  $db_name = 'taiga',
   String[1]                  $db_user = 'taiga',
   String[1]                  $user = 'taiga',
@@ -30,16 +31,16 @@ class taiga::back (
   Stdlib::Absolutepath       $python_path = $taiga::back::params::python_path,
   String[1]                  $python_version = $taiga::back::params::python_version,
   Stdlib::Absolutepath       $virtualenv = $taiga::back::params::virtualenv,
-) inherits taiga::back::params {
-  include ::taiga::back::user
-  include ::taiga::back::dependencies
-  include ::taiga::back::repo
-  include ::taiga::back::env
-  include ::taiga::back::install
-  include ::taiga::back::config
-  include ::taiga::back::database
-  include ::taiga::back::migrate
-  include ::taiga::back::seed
+) {
+  contain taiga::back::user
+  contain taiga::back::dependencies
+  contain taiga::back::repo
+  contain taiga::back::env
+  contain taiga::back::install
+  contain taiga::back::config
+  contain taiga::back::database
+  contain taiga::back::migrate
+  contain taiga::back::seed
 
   Class['Taiga::Back::User']
   -> Class['Taiga::Back::Dependencies']
@@ -62,7 +63,7 @@ class taiga::back (
   ~> Class['Taiga::Back::Seed']
 
   if $ldap_enable {
-    include ::taiga::back::ldap
+    contain taiga::back::ldap
 
     Class['Taiga::Back::Env']
     ~> Class['Taiga::Back::Ldap']

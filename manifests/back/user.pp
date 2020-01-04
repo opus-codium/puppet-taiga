@@ -1,5 +1,5 @@
 class taiga::back::user {
-  include ::taiga::back
+  assert_private()
 
   user { $taiga::back::user:
     ensure => present,
