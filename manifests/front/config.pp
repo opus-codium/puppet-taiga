@@ -1,3 +1,6 @@
+# @summary Manage Taiga front config
+#
+# @api private
 class taiga::front::config {
   assert_private()
 

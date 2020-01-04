@@ -1,3 +1,6 @@
+# @summary Configure Taiga back database
+#
+# @api private
 class taiga::back::database {
   assert_private()
 

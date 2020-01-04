@@ -1,3 +1,29 @@
+# @summary Install both Taiga front, back and setup an apache Virtual Host
+#
+# @param hostname
+# @param back_secret_key
+# @param back_db_password
+# @param protocol
+# @param default_language
+# @param repo_ensure
+# @param repo_revision
+# @param back_directory
+# @param front_directory
+# @param back_user
+# @param public_register_enabled
+# @param gravatar
+# @param ldap_server
+# @param ldap_port
+# @param ldap_bind_dn
+# @param ldap_bind_password
+# @param ldap_search_base
+# @param ldap_search_property
+# @param ldap_search_suffix
+# @param ldap_email_property
+# @param ldap_full_name_property
+# @param ssl_cert
+# @param ssl_key
+# @param ssl_chain
 class taiga (
   String[1]                      $hostname,
   String[1]                      $back_secret_key,

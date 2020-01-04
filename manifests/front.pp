@@ -1,3 +1,16 @@
+# @summary Install taiga front
+#
+# @param back_hostname
+# @param back_protocol
+# @param events
+# @param user
+# @param repo_ensure
+# @param repo_revision
+# @param install_dir
+# @param default_language
+# @param public_register_enabled
+# @param ldap_enable
+# @param gravatar
 class taiga::front (
   String[1]                 $back_hostname,
   Enum['http', 'https']     $back_protocol,

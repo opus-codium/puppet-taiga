@@ -1,3 +1,6 @@
+# @summary Allow running actions in Taiga back environment
+#
+# @api private
 define taiga::back::manage {
   assert_private()
 

@@ -1,3 +1,6 @@
+# @summary Configure Taiga back dependencies
+#
+# @api private
 class taiga::back::dependencies {
   assert_private()
 

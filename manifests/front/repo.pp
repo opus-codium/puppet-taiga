@@ -1,3 +1,6 @@
+# @summary Manage the Taiga front repository
+#
+# @api private
 class taiga::front::repo {
   assert_private()
 

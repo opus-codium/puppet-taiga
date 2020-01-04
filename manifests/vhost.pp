@@ -1,3 +1,13 @@
+# @summary Configure an apache Virtual Host for taiga
+#
+# @param protocol
+# @param hostname
+# @param back_directory
+# @param front_directory
+# @param back_user
+# @param ssl_cert
+# @param ssl_key
+# @param ssl_chain
 class taiga::vhost (
   Enum['http', 'https'] $protocol,
   String[1]             $hostname,
