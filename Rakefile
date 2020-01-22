@@ -16,8 +16,3 @@ task 'lint:auto_correct' do
   PuppetLint.configuration.fix = true
   Rake::Task[:lint].invoke
 end
-
-desc 'Generate documentation as REFERENCE.md'
-task :ref do
-  sh('bundle exec puppet strings generate --format Markdown')
-end

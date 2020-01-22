@@ -4,7 +4,7 @@
 Layout/HashAlignment:
   Description: Be consistent with Puppet's style
   EnforcedHashRocketStyle: table
-Metrics/LineLength:
+Layout/LineLength:
   Description: People have wide screens, use them.
   Max: 200
 Metrics/BlockLength:
