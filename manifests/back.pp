@@ -6,6 +6,7 @@
 # @param back_protocol
 # @param secret_key
 # @param db_password
+# @param dependencies
 # @param db_name
 # @param db_user
 # @param user
