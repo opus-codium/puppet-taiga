@@ -43,15 +43,15 @@ class taiga::vhost (
   include ::apache::mod::passenger
 
   apache::vhost { $hostname:
-    port             => $port,
-    docroot          => "${front_directory}/dist",
-    manage_docroot   => false,
-    ssl              => $ssl,
-    ssl_cert         => $ssl_cert,
-    ssl_key          => $ssl_key,
-    ssl_chain        => $ssl_chain,
+    port                   => $port,
+    docroot                => "${front_directory}/dist",
+    manage_docroot         => false,
+    ssl                    => $ssl,
+    ssl_cert               => $ssl_cert,
+    ssl_key                => $ssl_key,
+    ssl_chain              => $ssl_chain,
 
-    aliases          => [
+    aliases                => [
       {
         alias => '/media',
         path  => "${back_directory}/media",
@@ -62,34 +62,34 @@ class taiga::vhost (
       },
     ],
 
-    fallbackresource => '/index.html',
-    custom_fragment  => inline_template('
-<Location /api>
-    PassengerBaseURI /
-    PassengerAppRoot <%= @back_directory %>
-    PassengerAppType wsgi
-    PassengerStartupFile passenger_wsgi.py
-    PassengerPython <%= @back_directory %>/bin/python
-    PassengerUser <%= @back_user %>
-    FallbackResource disabled
-</Location>
-<Location /admin>
-    PassengerBaseURI /
-    PassengerAppRoot <%= @back_directory %>
-    PassengerAppType wsgi
-    PassengerStartupFile passenger_wsgi.py
-    PassengerUser <%= @back_user %>
-    FallbackResource disabled
+    passenger_app_root     => $back_directory,
+    passenger_app_type     => 'wsgi',
+    passenger_startup_file => 'passenger_wsgi.py',
+    passenger_python       => "${back_directory}/bin/python",
+    passenger_user         => $back_user,
 
-    Require ip 127.0.0.1
-    Require ip ::1
-    <%- if @ipaddress -%>
-    Require ip <%= @ipaddress %>
-    <%- end -%>
-    <%- if @ipaddress6 -%>
-    Require ip <%= @ipaddress6 %>
-    <%- end -%>
-</Location>
-'),
+    directories            => [
+      {
+        path           => "${front_directory}/dist",
+        options        => 'None',
+        allow_override => 'None',
+      },
+      {
+        passenger_base_uri     => '/admin',
+        provider               => 'location',
+        path                   => '/admin',
+        passenger_app_root     => $back_directory,
+        passenger_app_type     => 'wsgi',
+        passenger_startup_file => 'passenger_wsgi.py',
+        passenger_python       => "${back_directory}/bin/python",
+        passenger_user         => $back_user,
+        require                => [
+          '127.0.0.1',
+          '::1',
+          $facts['ipaddress'],
+          $facts['ipaddress6'],
+        ].filter |$ip| { ! $ip.empty }.map |$ip| { "ip ${ip}" },
+      },
+    ],
   }
 }
