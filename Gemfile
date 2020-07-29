@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 
 group :test do
   gem 'facter', (ENV['FACTER_GEM_VERSION'] || '~> 2.0'),           require: false
+  gem 'github_changelog_generator',                                require: false
   gem 'metadata-json-lint',                                        require: false
   gem 'puppet-lint-classes_and_types_beginning_with_digits-check', require: false
   gem 'puppet-lint-leading_zero-check',                            require: false
