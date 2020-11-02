@@ -24,6 +24,10 @@ EMAIL_HOST_USER = <%= scope.lookupvar('taiga::back::email_user') != :undef ? "'#
 EMAIL_HOST_PASSWORD = <%= scope.lookupvar('taiga::back::email_password') != :undef ? "'#{scope.lookupvar('taiga::back::email_password')}'" : 'None' %>
 EMAIL_PORT = <%= scope.lookupvar('taiga::back::email_port') %>
 
+<% if scope.lookupvar('taiga::back::change_notification_min_interval') -%>
+CHANGE_NOTIFICATIONS_MIN_INTERVAL = <%= scope.lookupvar('taiga::back::change_notification_min_interval') %>
+<% end -%>
+
 # Uncomment and populate with proper connection parameters
 # for enable github login/singin.
 #GITHUB_API_CLIENT_ID = "yourgithubclientid"
