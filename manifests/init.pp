@@ -24,6 +24,7 @@
 # @param ssl_cert
 # @param ssl_key
 # @param ssl_chain
+# @param change_notification_min_interval
 class taiga (
   String[1]                      $hostname,
   String[1]                      $back_secret_key,
@@ -49,6 +50,7 @@ class taiga (
   Optional[Stdlib::Absolutepath] $ssl_cert = undef,
   Optional[Stdlib::Absolutepath] $ssl_key = undef,
   Optional[Stdlib::Absolutepath] $ssl_chain = undef,
+  Optional[Integer]              $change_notification_min_interval = undef,
 ) {
   $ldap_enable = $ldap_server ? {
     undef   => false,
@@ -67,27 +69,28 @@ class taiga (
     gravatar                => $gravatar,
   }
   class { 'taiga::back':
-    front_hostname          => $hostname,
-    front_protocol          => $protocol,
-    back_hostname           => $hostname,
-    back_protocol           => $protocol,
-    secret_key              => $back_secret_key,
-    db_password             => $back_db_password,
-    repo_ensure             => $repo_ensure,
-    repo_revision           => $repo_revision,
-    install_dir             => $back_directory,
-    user                    => $back_user,
-    public_register_enabled => $public_register_enabled,
-    ldap_enable             => $ldap_enable,
-    ldap_server             => $ldap_server,
-    ldap_port               => $ldap_port,
-    ldap_bind_dn            => $ldap_bind_dn,
-    ldap_bind_password      => $ldap_bind_password,
-    ldap_search_base        => $ldap_search_base,
-    ldap_search_property    => $ldap_search_property,
-    ldap_search_suffix      => $ldap_search_suffix,
-    ldap_email_property     => $ldap_email_property,
-    ldap_full_name_property => $ldap_full_name_property,
+    front_hostname                   => $hostname,
+    front_protocol                   => $protocol,
+    back_hostname                    => $hostname,
+    back_protocol                    => $protocol,
+    secret_key                       => $back_secret_key,
+    db_password                      => $back_db_password,
+    repo_ensure                      => $repo_ensure,
+    repo_revision                    => $repo_revision,
+    install_dir                      => $back_directory,
+    user                             => $back_user,
+    public_register_enabled          => $public_register_enabled,
+    ldap_enable                      => $ldap_enable,
+    ldap_server                      => $ldap_server,
+    ldap_port                        => $ldap_port,
+    ldap_bind_dn                     => $ldap_bind_dn,
+    ldap_bind_password               => $ldap_bind_password,
+    ldap_search_base                 => $ldap_search_base,
+    ldap_search_property             => $ldap_search_property,
+    ldap_search_suffix               => $ldap_search_suffix,
+    ldap_email_property              => $ldap_email_property,
+    ldap_full_name_property          => $ldap_full_name_property,
+    change_notification_min_interval => $change_notification_min_interval,
   }
 
   class { 'taiga::vhost':

@@ -32,6 +32,7 @@
 # @param python_path
 # @param python_version
 # @param virtualenv
+# @param change_notification_min_interval
 class taiga::back (
   String[1]                  $front_hostname,
   Enum['http', 'https']      $front_protocol,
@@ -65,6 +66,7 @@ class taiga::back (
   Stdlib::Absolutepath       $python_path = $taiga::back::params::python_path,
   String[1]                  $python_version = $taiga::back::params::python_version,
   Stdlib::Absolutepath       $virtualenv = $taiga::back::params::virtualenv,
+  Optional[Integer]          $change_notification_min_interval = undef,
 ) {
   contain taiga::back::user
   contain taiga::back::dependencies
@@ -72,6 +74,7 @@ class taiga::back (
   contain taiga::back::env
   contain taiga::back::install
   contain taiga::back::config
+  contain taiga::back::cron
   contain taiga::back::database
   contain taiga::back::migrate
   contain taiga::back::seed
@@ -82,6 +85,7 @@ class taiga::back (
   -> Class['Taiga::Back::Env']
   -> Class['Taiga::Back::Install']
   -> Class['Taiga::Back::Config']
+  -> Class['Taiga::Back::Cron']
   -> Class['Taiga::Back::Database']
   -> Class['Taiga::Back::Migrate']
   -> Class['Taiga::Back::Seed']
