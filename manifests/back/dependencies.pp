@@ -4,7 +4,5 @@
 class taiga::back::dependencies {
   assert_private()
 
-  ensure_packages($taiga::back::dependencies, {
-    ensure => installed,
-  })
+  ensure_packages($taiga::back::dependencies, { ensure => installed, })
 }

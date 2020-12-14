@@ -15,7 +15,7 @@ class taiga::front::config {
   }
 
   file { "${taiga::front::install_dir}/dist/conf.json":
-    ensure  => present,
+    ensure  => file,
     owner   => $taiga::front::user,
     mode    => '0644',
     content => template('taiga/front/conf.json.erb'),

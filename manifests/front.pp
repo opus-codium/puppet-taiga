@@ -24,8 +24,8 @@ class taiga::front (
   Boolean                   $ldap_enable = false,
   Boolean                   $gravatar = true,
 ) {
-  include ::taiga::front::repo
-  include ::taiga::front::config
+  include taiga::front::repo
+  include taiga::front::config
 
   Class['Taiga::Front::Repo']
   -> Class['Taiga::Front::Config']
