@@ -1,0 +1,38 @@
+{
+  "name": "opuscodium-taiga",
+  "version": "0.0.0",
+  "author": "Opus Codium",
+  "summary": "Installs, configures, and manages the Taiga project management software",
+  "license": "Apache-2.0",
+  "source": "https://github.com/opus-codium/puppet-taiga",
+  "project_page": "https://github.com/opus-codium/puppet-taiga",
+  "issues_url": "https://github.com/opus-codium/puppet-taiga/pulls",
+  "dependencies": [
+    { "name": "puppetlabs/concat", "version_requirement": ">= 0.1.0 < 7" },
+    { "name": "puppetlabs/postgresql", "version_requirement": ">= 3.0.0 < 7" },
+    { "name": "puppetlabs/stdlib", "version_requirement": ">= 4.13.0 < 7" },
+    { "name": "puppetlabs/vcsrepo", "version_requirement": ">= 2.0.0 < 4" }
+  ],
+  "data_provider": "hiera",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "11",
+        "12"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.0.0 < 8.0.0"
+    }
+  ]
+}
