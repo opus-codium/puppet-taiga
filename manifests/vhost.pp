@@ -33,14 +33,14 @@ class taiga::vhost (
   }
 
   file { "${back_directory}/passenger_wsgi.py":
-    ensure  => present,
+    ensure  => file,
     owner   => 'root',
     mode    => '0755',
     content => template('taiga/vhost/passenger_wsgi.py.erb'),
   }
 
-  include ::apache
-  include ::apache::mod::passenger
+  include apache
+  include apache::mod::passenger
 
   apache::vhost { $hostname:
     port                       => $port,
@@ -96,8 +96,8 @@ class taiga::vhost (
         require                => [
           '127.0.0.1',
           '::1',
-          $facts['ipaddress'],
-          $facts['ipaddress6'],
+          $facts.get('networking.ip'),
+          $facts.get('networking.ip6'),
         ].filter |$ip| { ! $ip.empty }.map |$ip| { "ip ${ip}" },
       },
     ],
