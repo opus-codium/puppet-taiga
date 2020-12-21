@@ -24,7 +24,6 @@ end
 
 begin
   require 'github_changelog_generator/task'
-  require 'puppet_blacksmith'
   GitHubChangelogGenerator::RakeTask.new :changelog do |config|
     version = (Blacksmith::Modulefile.new).version
     config.future_release = "v#{version}" if version =~ /^\d+\.\d+.\d+$/
@@ -34,6 +33,12 @@ begin
     metadata_json = File.join(File.dirname(__FILE__), 'metadata.json')
     metadata = JSON.load(File.read(metadata_json))
     config.project = metadata['name']
+  end
+
+  require 'puppet_blacksmith'
+  Blacksmith::RakeTask.new do |t|
+    t.tag_pattern = '%s'
+    t.commit_message_pattern = 'Bump version to %s'
   end
 
   # Workaround for https://github.com/github-changelog-generator/github-changelog-generator/issues/715
