@@ -1,30 +1,30 @@
 # @summary Install both Taiga front, back and setup an apache Virtual Host
 #
-# @param hostname
-# @param back_secret_key
-# @param back_db_password
-# @param protocol
-# @param default_language
-# @param repo_ensure
-# @param repo_revision
-# @param back_directory
-# @param front_directory
-# @param back_user
-# @param public_register_enabled
-# @param gravatar
-# @param ldap_server
-# @param ldap_port
-# @param ldap_bind_dn
-# @param ldap_bind_password
-# @param ldap_search_base
-# @param ldap_search_property
+# @param hostname Hostname that will be used to reach the Taiga instance.
+# @param back_secret_key A secret key passed to the `SECRET_KEY` setting in taiga-back configuration. (A 60 characters random string should be a good start).
+# @param back_db_password Sets the database password. It is currently not used but still has to be provided.
+# @param protocol Protocol to be used.
+# @param default_language Default language.
+# @param repo_ensure Ensure value for Taiga's vcs repository.
+# @param repo_revision Revision for Taiga's vcs repository.
+# @param back_directory Directory where is installed the backend of Taiga.
+# @param front_directory Directory where is installed the frontend of Taiga.
+# @param back_user Name of the user running the backend daemon.
+# @param public_register_enabled Enable anyone to register on this instance.
+# @param gravatar Use gravatar.
+# @param ldap_server LDAP server.
+# @param ldap_port LDAP port.
+# @param ldap_bind_dn DN to use for LDAP authentication.
+# @param ldap_bind_password Password to use for LDAP authentication.
+# @param ldap_search_base Search base for users.
+# @param ldap_search_property Property holding users login.
 # @param ldap_search_suffix
-# @param ldap_email_property
-# @param ldap_full_name_property
-# @param ssl_cert
-# @param ssl_key
-# @param ssl_chain
-# @param change_notification_min_interval
+# @param ldap_email_property Property holding users e-mail.
+# @param ldap_full_name_property Property holding users full name.
+# @param ssl_cert Certificate to use for apache VirtualHost.
+# @param ssl_key Key to use for apache VirtualHost.
+# @param ssl_chain Certificate chain to use for apache VirtualHost.
+# @param change_notification_min_interval Interval for sending change notifications.
 class taiga (
   String[1]                      $hostname,
   String[1]                      $back_secret_key,

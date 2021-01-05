@@ -1,13 +1,13 @@
 # @summary Configure an apache Virtual Host for taiga
 #
-# @param protocol
-# @param hostname
-# @param back_directory
-# @param front_directory
-# @param back_user
-# @param ssl_cert
-# @param ssl_key
-# @param ssl_chain
+# @param protocol Protocol to be used.
+# @param hostname Hostname that will be used to reach the Taiga instance.
+# @param back_directory Directory where is installed the backend of Taiga.
+# @param front_directory Directory where is installed the frontend of Taiga.
+# @param back_user Name of the user running the backend daemon.
+# @param ssl_cert Certificate to use for apache VirtualHost.
+# @param ssl_key Key to use for apache VirtualHost.
+# @param ssl_chain Certificate chain to use for apache VirtualHost.
 class taiga::vhost (
   Enum['http', 'https'] $protocol,
   String[1]             $hostname,
