@@ -1,16 +1,16 @@
 # @summary Install taiga front
 #
-# @param back_hostname
-# @param back_protocol
+# @param back_hostname Hostname used to reach the backend.
+# @param back_protocol Protocol used to reach the backend.
 # @param events
-# @param user
-# @param repo_ensure
-# @param repo_revision
-# @param install_dir
-# @param default_language
-# @param public_register_enabled
-# @param ldap_enable
-# @param gravatar
+# @param user Name of the user owning the files of the frontend.
+# @param repo_ensure Ensure value for Taiga's vcs repository.
+# @param repo_revision Revision for Taiga's vcs repository.
+# @param install_dir Directory where is installed the frontend of Taiga.
+# @param default_language Default language.
+# @param public_register_enabled Enable anyone to register on this instance.
+# @param ldap_enable Enable the LDAP client.
+# @param gravatar Use gravatar.
 class taiga::front (
   String[1]                 $back_hostname,
   Enum['http', 'https']     $back_protocol,

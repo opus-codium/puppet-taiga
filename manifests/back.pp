@@ -1,38 +1,38 @@
 # @summary Install Taiga back
 #
-# @param front_hostname
-# @param front_protocol
-# @param back_hostname
-# @param back_protocol
-# @param secret_key
-# @param db_password
-# @param dependencies
-# @param db_name
-# @param db_user
-# @param user
-# @param repo_ensure
-# @param repo_revision
-# @param install_dir
-# @param public_register_enabled
-# @param ldap_enable
-# @param ldap_server
-# @param ldap_port
-# @param ldap_bind_dn
-# @param ldap_bind_password
-# @param ldap_search_base
-# @param ldap_search_property
+# @param front_hostname Hostname used to reach the frontend.
+# @param front_protocol Protocol used to reach the frontend.
+# @param back_hostname Hostname used to reach the backend.
+# @param back_protocol Protocol used to reach the backend.
+# @param secret_key A secret key passed to the `SECRET_KEY` setting in taiga-back configuration. (A 60 characters random string should be a good start).
+# @param db_password Sets the database password. It is currently not used but still has to be provided.
+# @param dependencies Extra depepdencies.
+# @param db_name Name of the database.
+# @param db_user User of the database.
+# @param user Name of the user running the backend daemon.
+# @param repo_ensure Ensure value for Taiga's vcs repository.
+# @param repo_revision Revision for Taiga's vcs repository.
+# @param install_dir Directory where is installed the backend of Taiga.
+# @param public_register_enabled Enable anyone to register on this instance.
+# @param ldap_enable Enable the LDAP client.
+# @param ldap_server LDAP server.
+# @param ldap_port LDAP port.
+# @param ldap_bind_dn DN to use for LDAP authentication.
+# @param ldap_bind_password Password to use for LDAP authentication.
+# @param ldap_search_base Search base for users.
+# @param ldap_search_property Property holding users login.
 # @param ldap_search_suffix
-# @param ldap_email_property
-# @param ldap_full_name_property
-# @param email_use_tls
-# @param email_host
-# @param email_port
-# @param email_user
-# @param email_password
-# @param python_path
-# @param python_version
-# @param virtualenv
-# @param change_notification_min_interval
+# @param ldap_email_property Property holding users e-mail.
+# @param ldap_full_name_property Property holding users full name.
+# @param email_use_tls Use TLS to connect to the mail server.
+# @param email_host Hostname of the mail server.
+# @param email_port Port of the mail server.
+# @param email_user Username to authenticate on the mail server.
+# @param email_password Password to authenticate on the mail server.
+# @param python_path Path to Python.
+# @param python_version Version of Python.
+# @param virtualenv Path to virtualenv.
+# @param change_notification_min_interval Interval for sending change notifications.
 class taiga::back (
   String[1]                  $front_hostname,
   Enum['http', 'https']      $front_protocol,
