@@ -25,14 +25,20 @@ end
 begin
   require 'github_changelog_generator/task'
   GitHubChangelogGenerator::RakeTask.new :changelog do |config|
-    version = (Blacksmith::Modulefile.new).version
-    config.future_release = "v#{version}" if version =~ /^\d+\.\d+.\d+$/
-    config.header = "# Changelog\n\nAll notable changes to this project will be documented in this file.\nEach new release typically also includes the latest modulesync defaults.\nThese should not affect the functionality of the module."
+    config.future_release = Blacksmith::Modulefile.new.version
+    config.header = <<~HEADER.chomp
+      # Changelog
+
+      All notable changes to this project will be documented in this file.
+
+      The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+      and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+      HEADER
     config.exclude_labels = %w{duplicate question invalid wontfix wont-fix modulesync skip-changelog}
     config.user = 'opus-codium'
     metadata_json = File.join(File.dirname(__FILE__), 'metadata.json')
     metadata = JSON.load(File.read(metadata_json))
-    config.project = metadata['name']
+    config.project = "puppet-#{metadata['name'].split('-').last}"
   end
 
   require 'puppet_blacksmith'
