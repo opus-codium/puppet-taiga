@@ -1,0 +1,45 @@
+from .common import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '<%= $taiga::back::db_name %>',
+        'USER': '<%= $taiga::back::db_user %>',
+        'PASSWORD': '<%= $taiga::back::db_password %>',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+MEDIA_URL = "<%= $taiga::back::front_protocol %>://<%= $taiga::back::front_hostname %>/media/"
+STATIC_URL = "<%= $taiga::back::front_protocol %>://<%= $taiga::back::front_hostname %>/static/"
+ADMIN_MEDIA_PREFIX = "<%= $taiga::back::front_protocol %>://<%= $taiga::back::front_hostname %>/static/admin/"
+SITES["front"]["scheme"] = "<%= $taiga::back::front_protocol %>"
+SITES["front"]["domain"] = "<%= $taiga::back::front_hostname %>"
+
+SECRET_KEY = "<%= $taiga::back::secret_key %>"
+
+DEBUG = False
+TEMPLATE_DEBUG = False
+PUBLIC_REGISTER_ENABLED = <%= String($taiga::back::public_register_enabled, '%T') %>
+
+DEFAULT_FROM_EMAIL = "no-reply@<%= $taiga::back::front_hostname %>"
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+# Uncomment and populate with proper connection parameters
+# for enable email sending. EMAIL_HOST_USER should end by @domain.tld
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = <%= String($taiga::back::email_use_tls, '%T') %>
+EMAIL_HOST = <%= if $taiga::back::email_host { "'#{$taiga::back::email_host}'" } else { 'None' } %>
+EMAIL_HOST_USER = <%= if $taiga::back::email_user { "'#{$taiga::back::email_user}'" } else { 'None' } %>
+EMAIL_HOST_PASSWORD = <%= if $taiga::back::email_password { "'#{$taiga::back::email_password}'" } else { 'None' } %>
+EMAIL_PORT = <%= $taiga::back::email_port %>
+
+<% if $taiga::back::change_notification_min_interval { -%>
+CHANGE_NOTIFICATIONS_MIN_INTERVAL = <%= $taiga::back::change_notification_min_interval %>
+<% } -%>
+
+# Uncomment and populate with proper connection parameters
+# for enable github login/singin.
+#GITHUB_API_CLIENT_ID = "yourgithubclientid"
+#GITHUB_API_CLIENT_SECRET = "yourgithubclientsecret"

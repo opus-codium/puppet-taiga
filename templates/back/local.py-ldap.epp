@@ -1,0 +1,18 @@
+INSTALLED_APPS += ["taiga_contrib_ldap_auth"]
+
+LDAP_SERVER = '<%= $taiga::back::ldap_server %>'
+LDAP_PORT = <%= $taiga::back::ldap_port %>
+
+# Full DN of the service account use to connect to LDAP server and search for login user's account entry
+# If LDAP_BIND_DN is not specified, or is blank, then an anonymous bind is attempated
+LDAP_BIND_DN = <%= if $taiga::back::ldap_bind_dn { "'#{$taiga::back::ldap_bind_dn}'" } else { 'None' } %>
+LDAP_BIND_PASSWORD = <%= if $taiga::back::ldap_bind_password { "'#{$taiga::back::ldap_bind_password}'" } else { 'None' } %>
+# Starting point within LDAP structure to search for login user
+LDAP_SEARCH_BASE = '<%= $taiga::back::ldap_search_base %>'
+# LDAP property used for searching, ie. login username needs to match value in sAMAccountName property in LDAP
+LDAP_SEARCH_PROPERTY = '<%= $taiga::back::ldap_search_property %>'
+LDAP_SEARCH_SUFFIX = <%= if $taiga::back::ldap_search_suffix { "'#{$taiga::back::ldap_search_suffix}'" } else { 'None' } %> # '@example.com'
+
+# Names of LDAP properties on user account to get email and full name
+LDAP_EMAIL_PROPERTY = '<%= $taiga::back::ldap_email_property %>'
+LDAP_FULL_NAME_PROPERTY = '<%= $taiga::back::ldap_full_name_property %>'

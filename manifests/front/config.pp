@@ -18,6 +18,6 @@ class taiga::front::config {
     ensure  => file,
     owner   => $taiga::front::user,
     mode    => '0644',
-    content => template('taiga/front/conf.json.erb'),
+    content => epp('taiga/front/conf.json'),
   }
 }
