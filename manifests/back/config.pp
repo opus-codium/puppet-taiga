@@ -5,9 +5,10 @@ class taiga::back::config {
   assert_private()
 
   concat { "${taiga::back::install_dir}/settings/local.py":
-    ensure => present,
-    owner  => $taiga::back::user,
-    group  => 'nogroup',
+    ensure    => present,
+    owner     => $taiga::back::user,
+    group     => 'nogroup',
+    show_diff => false,
   }
 
   concat::fragment { 'taiga-back-local.py-base':
