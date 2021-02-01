@@ -36,7 +36,7 @@ class taiga::vhost (
     ensure  => file,
     owner   => 'root',
     mode    => '0755',
-    content => template('taiga/vhost/passenger_wsgi.py.erb'),
+    content => epp('taiga/vhost/passenger_wsgi.py'),
   }
 
   include apache

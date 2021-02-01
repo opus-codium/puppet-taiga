@@ -1,0 +1,18 @@
+{
+    "api": "<%= $taiga::front::back_protocol %>://<%= $taiga::front::back_hostname %>/api/v1/",
+<% if $taiga::front::events { -%>
+    "eventsUrl": "<%= $taiga::front::ws_protocol %>://<%= $taiga::front::back_hostname %>/events",
+<% } -%>
+    "debug": "true",
+    "defaultLanguage": "<%= $taiga::front::default_language %>",
+    "publicRegisterEnabled": <%= $taiga::front::public_register_enabled %>,
+    "feedbackEnabled": true,
+<% if $taiga::front::config::login_form_type { -%>
+    "loginFormType": "<%= $taiga::front::config::login_form_type %>",
+<% } -%>
+    "privacyPolicyUrl": null,
+    "termsOfServiceUrl": null,
+    "maxUploadFileSize": null,
+    "contribPlugins": [],
+    "gravatar": <%= $taiga::front::gravatar %>
+}
