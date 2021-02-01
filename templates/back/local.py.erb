@@ -1,5 +1,16 @@
 from .common import *
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '<%= scope.lookupvar('taiga::back::db_name') %>',
+        'USER': '<%= scope.lookupvar('taiga::back::db_user') %>',
+        'PASSWORD': '<%= scope.lookupvar('taiga::back::db_password') %>',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
 MEDIA_URL = "<%= scope.lookupvar('taiga::back::front_protocol') %>://<%= scope.lookupvar('taiga::back::front_hostname') %>/media/"
 STATIC_URL = "<%= scope.lookupvar('taiga::back::front_protocol') %>://<%= scope.lookupvar('taiga::back::front_hostname') %>/static/"
 ADMIN_MEDIA_PREFIX = "<%= scope.lookupvar('taiga::back::front_protocol') %>://<%= scope.lookupvar('taiga::back::front_hostname') %>/static/admin/"
