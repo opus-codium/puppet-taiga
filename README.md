@@ -1,6 +1,6 @@
 # taiga
 
-[![Build Status](https://travis-ci.com/opus-codium/puppet-taiga.svg?branch=master)](https://travis-ci.com/opus-codium/puppet-taiga)
+[![Build Status](https://github.com/opus-codium/puppet-taiga/workflows/CI/badge.svg)](https://github.com/opus-codium/puppet-taiga/actions?query=workflow%3ACI)
 
 <!-- vim-markdown-toc GFM -->
 
