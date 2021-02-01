@@ -8,6 +8,9 @@ define taiga::back::manage {
     command     => "${taiga::back::install_dir}/bin/python manage.py ${name}",
     cwd         => $taiga::back::install_dir,
     user        => $taiga::back::user,
+    environment => [
+      'DJANGO_SETTINGS_MODULE=settings.local',
+    ],
     refreshonly => true,
   }
 }
