@@ -5,6 +5,8 @@
 # otherwise attempt to load it directly.
 begin
   require 'voxpupuli/test/rake'
+
+  task default: :rubocop
 rescue LoadError
   require 'puppetlabs_spec_helper/rake_tasks'
 end
@@ -31,8 +33,8 @@ begin
 
       All notable changes to this project will be documented in this file.
 
-      The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-      and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+      The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+      and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
       HEADER
     config.exclude_labels = %w{duplicate question invalid wontfix wont-fix modulesync skip-changelog}
     config.user = 'opus-codium'
