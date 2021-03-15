@@ -30,9 +30,9 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 # for enable email sending. EMAIL_HOST_USER should end by @domain.tld
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = <%= String($taiga::back::email_use_tls, '%T') %>
-EMAIL_HOST = <%= if $taiga::back::email_host { "'#{$taiga::back::email_host}'" } else { 'None' } %>
-EMAIL_HOST_USER = <%= if $taiga::back::email_user { "'#{$taiga::back::email_user}'" } else { 'None' } %>
-EMAIL_HOST_PASSWORD = <%= if $taiga::back::email_password { "'#{$taiga::back::email_password}'" } else { 'None' } %>
+EMAIL_HOST = <%= if $taiga::back::email_host { String($taiga::back::email_host, '%p') } else { 'None' } %>
+EMAIL_HOST_USER = <%= if $taiga::back::email_user { String($taiga::back::email_user, '%p') } else { 'None' } %>
+EMAIL_HOST_PASSWORD = <%= if $taiga::back::email_password { String($taiga::back::email_password, '%p') } else { 'None' } %>
 EMAIL_PORT = <%= $taiga::back::email_port %>
 
 <% if $taiga::back::change_notification_min_interval { -%>
