@@ -40,33 +40,60 @@
 
 ## Classes
 
-### `taiga`
+### <a name="taiga"></a>`taiga`
 
 Install both Taiga front, back and setup an apache Virtual Host
 
 #### Parameters
 
-The following parameters are available in the `taiga` class.
+The following parameters are available in the `taiga` class:
 
-##### `hostname`
+* [`hostname`](#hostname)
+* [`back_secret_key`](#back_secret_key)
+* [`back_db_password`](#back_db_password)
+* [`protocol`](#protocol)
+* [`default_language`](#default_language)
+* [`repo_ensure`](#repo_ensure)
+* [`repo_revision`](#repo_revision)
+* [`back_directory`](#back_directory)
+* [`front_directory`](#front_directory)
+* [`back_user`](#back_user)
+* [`public_register_enabled`](#public_register_enabled)
+* [`gravatar`](#gravatar)
+* [`ldap_server`](#ldap_server)
+* [`ldap_port`](#ldap_port)
+* [`ldap_bind_dn`](#ldap_bind_dn)
+* [`ldap_bind_password`](#ldap_bind_password)
+* [`ldap_search_base`](#ldap_search_base)
+* [`ldap_search_property`](#ldap_search_property)
+* [`ldap_search_suffix`](#ldap_search_suffix)
+* [`ldap_email_property`](#ldap_email_property)
+* [`ldap_full_name_property`](#ldap_full_name_property)
+* [`ssl_cert`](#ssl_cert)
+* [`ssl_key`](#ssl_key)
+* [`ssl_chain`](#ssl_chain)
+* [`change_notification_min_interval`](#change_notification_min_interval)
+* [`default_project_slug_prefix`](#default_project_slug_prefix)
+
+##### <a name="hostname"></a>`hostname`
 
 Data type: `String[1]`
 
 Hostname that will be used to reach the Taiga instance.
 
-##### `back_secret_key`
+##### <a name="back_secret_key"></a>`back_secret_key`
 
 Data type: `String[1]`
 
 A secret key passed to the `SECRET_KEY` setting in taiga-back configuration. (A 60 characters random string should be a good start).
 
-##### `back_db_password`
+##### <a name="back_db_password"></a>`back_db_password`
 
 Data type: `String[1]`
 
 Sets the database password. It is currently not used but still has to be provided.
 
-##### `protocol`
+##### <a name="protocol"></a>`protocol`
 
 Data type: `Enum['http', 'https']`
 
@@ -74,7 +101,7 @@ Protocol to be used.
 
 Default value: `'https'`
 
-##### `default_language`
+##### <a name="default_language"></a>`default_language`
 
 Data type: `String[2, 2]`
 
@@ -82,7 +109,7 @@ Default language.
 
 Default value: `'en'`
 
-##### `repo_ensure`
+##### <a name="repo_ensure"></a>`repo_ensure`
 
 Data type: `Enum['present', 'latest']`
 
@@ -90,7 +117,7 @@ Ensure value for Taiga's vcs repository.
 
 Default value: `'present'`
 
-##### `repo_revision`
+##### <a name="repo_revision"></a>`repo_revision`
 
 Data type: `String[1]`
 
@@ -98,7 +125,7 @@ Revision for Taiga's vcs repository.
 
 Default value: `'stable'`
 
-##### `back_directory`
+##### <a name="back_directory"></a>`back_directory`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -106,7 +133,7 @@ Directory where is installed the backend of Taiga.
 
 Default value: `'/srv/www/taiga-back'`
 
-##### `front_directory`
+##### <a name="front_directory"></a>`front_directory`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -114,7 +141,7 @@ Directory where is installed the frontend of Taiga.
 
 Default value: `'/srv/www/taiga-front'`
 
-##### `back_user`
+##### <a name="back_user"></a>`back_user`
 
 Data type: `String[1]`
 
@@ -122,7 +149,7 @@ Name of the user running the backend daemon.
 
 Default value: `'taiga'`
 
-##### `public_register_enabled`
+##### <a name="public_register_enabled"></a>`public_register_enabled`
 
 Data type: `Boolean`
 
@@ -130,7 +157,7 @@ Enable anyone to register on this instance.
 
 Default value: ``true``
 
-##### `gravatar`
+##### <a name="gravatar"></a>`gravatar`
 
 Data type: `Boolean`
 
@@ -138,7 +165,7 @@ Use gravatar.
 
 Default value: ``true``
 
-##### `ldap_server`
+##### <a name="ldap_server"></a>`ldap_server`
 
 Data type: `Optional[String[1]]`
 
@@ -146,7 +173,7 @@ LDAP server.
 
 Default value: ``undef``
 
-##### `ldap_port`
+##### <a name="ldap_port"></a>`ldap_port`
 
 Data type: `Integer`
 
@@ -154,7 +181,7 @@ LDAP port.
 
 Default value: `389`
 
-##### `ldap_bind_dn`
+##### <a name="ldap_bind_dn"></a>`ldap_bind_dn`
 
 Data type: `Optional[String[1]]`
 
@@ -162,7 +189,7 @@ DN to use for LDAP authentication.
 
 Default value: ``undef``
 
-##### `ldap_bind_password`
+##### <a name="ldap_bind_password"></a>`ldap_bind_password`
 
 Data type: `Optional[String[1]]`
 
@@ -170,7 +197,7 @@ Password to use for LDAP authentication.
 
 Default value: ``undef``
 
-##### `ldap_search_base`
+##### <a name="ldap_search_base"></a>`ldap_search_base`
 
 Data type: `String[1]`
 
@@ -178,7 +205,7 @@ Search base for users.
 
 Default value: `'ou=people,dc=example,dc=com'`
 
-##### `ldap_search_property`
+##### <a name="ldap_search_property"></a>`ldap_search_property`
 
 Data type: `String[1]`
 
@@ -186,7 +213,7 @@ Property holding users login.
 
 Default value: `'uid'`
 
-##### `ldap_search_suffix`
+##### <a name="ldap_search_suffix"></a>`ldap_search_suffix`
 
 Data type: `Optional[String[1]]`
 
@@ -194,7 +221,7 @@ Data type: `Optional[String[1]]`
 
 Default value: ``undef``
 
-##### `ldap_email_property`
+##### <a name="ldap_email_property"></a>`ldap_email_property`
 
 Data type: `String[1]`
 
@@ -202,7 +229,7 @@ Property holding users e-mail.
 
 Default value: `'mail'`
 
-##### `ldap_full_name_property`
+##### <a name="ldap_full_name_property"></a>`ldap_full_name_property`
 
 Data type: `String[1]`
 
@@ -210,7 +237,7 @@ Property holding users full name.
 
 Default value: `'cn'`
 
-##### `ssl_cert`
+##### <a name="ssl_cert"></a>`ssl_cert`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -218,7 +245,7 @@ Certificate to use for apache VirtualHost.
 
 Default value: ``undef``
 
-##### `ssl_key`
+##### <a name="ssl_key"></a>`ssl_key`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -226,7 +253,7 @@ Key to use for apache VirtualHost.
 
 Default value: ``undef``
 
-##### `ssl_chain`
+##### <a name="ssl_chain"></a>`ssl_chain`
 
 Data type: `Optional[Stdlib::Absolutepath]`
 
@@ -234,7 +261,7 @@ Certificate chain to use for apache VirtualHost.
 
 Default value: ``undef``
 
-##### `change_notification_min_interval`
+##### <a name="change_notification_min_interval"></a>`change_notification_min_interval`
 
 Data type: `Optional[Integer]`
 
@@ -242,57 +269,100 @@ Interval for sending change notifications.
 
 Default value: ``undef``
 
-### `taiga::back`
+##### <a name="default_project_slug_prefix"></a>`default_project_slug_prefix`
+
+Data type: `Optional[Boolean]`
+
+Add username to project slug
+
+Default value: ``undef``
+
+### <a name="taigaback"></a>`taiga::back`
 
 Install Taiga back
 
 #### Parameters
 
-The following parameters are available in the `taiga::back` class.
+The following parameters are available in the `taiga::back` class:
 
-##### `front_hostname`
+* [`front_hostname`](#front_hostname)
+* [`front_protocol`](#front_protocol)
+* [`back_hostname`](#back_hostname)
+* [`back_protocol`](#back_protocol)
+* [`secret_key`](#secret_key)
+* [`db_password`](#db_password)
+* [`dependencies`](#dependencies)
+* [`db_name`](#db_name)
+* [`db_user`](#db_user)
+* [`user`](#user)
+* [`repo_ensure`](#repo_ensure)
+* [`repo_revision`](#repo_revision)
+* [`install_dir`](#install_dir)
+* [`public_register_enabled`](#public_register_enabled)
+* [`ldap_enable`](#ldap_enable)
+* [`ldap_server`](#ldap_server)
+* [`ldap_port`](#ldap_port)
+* [`ldap_bind_dn`](#ldap_bind_dn)
+* [`ldap_bind_password`](#ldap_bind_password)
+* [`ldap_search_base`](#ldap_search_base)
+* [`ldap_search_property`](#ldap_search_property)
+* [`ldap_search_suffix`](#ldap_search_suffix)
+* [`ldap_email_property`](#ldap_email_property)
+* [`ldap_full_name_property`](#ldap_full_name_property)
+* [`email_use_tls`](#email_use_tls)
+* [`email_host`](#email_host)
+* [`email_port`](#email_port)
+* [`email_user`](#email_user)
+* [`email_password`](#email_password)
+* [`python_path`](#python_path)
+* [`python_version`](#python_version)
+* [`virtualenv`](#virtualenv)
+* [`change_notification_min_interval`](#change_notification_min_interval)
+* [`default_project_slug_prefix`](#default_project_slug_prefix)
+
+##### <a name="front_hostname"></a>`front_hostname`
 
 Data type: `String[1]`
 
 Hostname used to reach the frontend.
 
-##### `front_protocol`
+##### <a name="front_protocol"></a>`front_protocol`
 
 Data type: `Enum['http', 'https']`
 
 Protocol used to reach the frontend.
 
-##### `back_hostname`
+##### <a name="back_hostname"></a>`back_hostname`
 
 Data type: `String[1]`
 
 Hostname used to reach the backend.
 
-##### `back_protocol`
+##### <a name="back_protocol"></a>`back_protocol`
 
 Data type: `Enum['http', 'https']`
 
 Protocol used to reach the backend.
 
-##### `secret_key`
+##### <a name="secret_key"></a>`secret_key`
 
 Data type: `String[1]`
 
 A secret key passed to the `SECRET_KEY` setting in taiga-back configuration. (A 60 characters random string should be a good start).
 
-##### `db_password`
+##### <a name="db_password"></a>`db_password`
 
 Data type: `String[1]`
 
 Sets the database password. It is currently not used but still has to be provided.
 
-##### `dependencies`
+##### <a name="dependencies"></a>`dependencies`
 
 Data type: `Array[String[1]]`
 
 Extra depepdencies.
 
-##### `db_name`
+##### <a name="db_name"></a>`db_name`
 
 Data type: `String[1]`
 
@@ -300,7 +370,7 @@ Name of the database.
 
 Default value: `'taiga'`
 
-##### `db_user`
+##### <a name="db_user"></a>`db_user`
 
 Data type: `String[1]`
 
@@ -308,7 +378,7 @@ User of the database.
 
 Default value: `'taiga'`
 
-##### `user`
+##### <a name="user"></a>`user`
 
 Data type: `String[1]`
 
@@ -316,7 +386,7 @@ Name of the user running the backend daemon.
 
 Default value: `'taiga'`
 
-##### `repo_ensure`
+##### <a name="repo_ensure"></a>`repo_ensure`
 
 Data type: `Enum['present', 'latest']`
 
@@ -324,7 +394,7 @@ Ensure value for Taiga's vcs repository.
 
 Default value: `'present'`
 
-##### `repo_revision`
+##### <a name="repo_revision"></a>`repo_revision`
 
 Data type: `String[1]`
 
@@ -332,7 +402,7 @@ Revision for Taiga's vcs repository.
 
 Default value: `'stable'`
 
-##### `install_dir`
+##### <a name="install_dir"></a>`install_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -340,7 +410,7 @@ Directory where is installed the backend of Taiga.
 
 Default value: `'/srv/www/taiga-back'`
 
-##### `public_register_enabled`
+##### <a name="public_register_enabled"></a>`public_register_enabled`
 
 Data type: `Boolean`
 
@@ -348,7 +418,7 @@ Enable anyone to register on this instance.
 
 Default value: ``true``
 
-##### `ldap_enable`
+##### <a name="ldap_enable"></a>`ldap_enable`
 
 Data type: `Boolean`
 
@@ -356,7 +426,7 @@ Enable the LDAP client.
 
 Default value: ``false``
 
-##### `ldap_server`
+##### <a name="ldap_server"></a>`ldap_server`
 
 Data type: `Optional[String[1]]`
 
@@ -364,7 +434,7 @@ LDAP server.
 
 Default value: ``undef``
 
-##### `ldap_port`
+##### <a name="ldap_port"></a>`ldap_port`
 
 Data type: `Integer`
 
@@ -372,7 +442,7 @@ LDAP port.
 
 Default value: `389`
 
-##### `ldap_bind_dn`
+##### <a name="ldap_bind_dn"></a>`ldap_bind_dn`
 
 Data type: `Optional[String[1]]`
 
@@ -380,7 +450,7 @@ DN to use for LDAP authentication.
 
 Default value: ``undef``
 
-##### `ldap_bind_password`
+##### <a name="ldap_bind_password"></a>`ldap_bind_password`
 
 Data type: `Optional[String[1]]`
 
@@ -388,7 +458,7 @@ Password to use for LDAP authentication.
 
 Default value: ``undef``
 
-##### `ldap_search_base`
+##### <a name="ldap_search_base"></a>`ldap_search_base`
 
 Data type: `String[1]`
 
@@ -396,7 +466,7 @@ Search base for users.
 
 Default value: `'ou=people,dc=example,dc=com'`
 
-##### `ldap_search_property`
+##### <a name="ldap_search_property"></a>`ldap_search_property`
 
 Data type: `String[1]`
 
@@ -404,7 +474,7 @@ Property holding users login.
 
 Default value: `'uid'`
 
-##### `ldap_search_suffix`
+##### <a name="ldap_search_suffix"></a>`ldap_search_suffix`
 
 Data type: `Optional[String[1]]`
 
@@ -412,7 +482,7 @@ Data type: `Optional[String[1]]`
 
 Default value: ``undef``
 
-##### `ldap_email_property`
+##### <a name="ldap_email_property"></a>`ldap_email_property`
 
 Data type: `String[1]`
 
@@ -420,7 +490,7 @@ Property holding users e-mail.
 
 Default value: `'mail'`
 
-##### `ldap_full_name_property`
+##### <a name="ldap_full_name_property"></a>`ldap_full_name_property`
 
 Data type: `String[1]`
 
@@ -428,7 +498,7 @@ Property holding users full name.
 
 Default value: `'cn'`
 
-##### `email_use_tls`
+##### <a name="email_use_tls"></a>`email_use_tls`
 
 Data type: `Boolean`
 
@@ -436,7 +506,7 @@ Use TLS to connect to the mail server.
 
 Default value: ``false``
 
-##### `email_host`
+##### <a name="email_host"></a>`email_host`
 
 Data type: `String[1]`
 
@@ -444,7 +514,7 @@ Hostname of the mail server.
 
 Default value: `'localhost'`
 
-##### `email_port`
+##### <a name="email_port"></a>`email_port`
 
 Data type: `Integer`
 
@@ -452,7 +522,7 @@ Port of the mail server.
 
 Default value: `25`
 
-##### `email_user`
+##### <a name="email_user"></a>`email_user`
 
 Data type: `Optional[String[1]]`
 
@@ -460,7 +530,7 @@ Username to authenticate on the mail server.
 
 Default value: ``undef``
 
-##### `email_password`
+##### <a name="email_password"></a>`email_password`
 
 Data type: `Optional[String[1]]`
 
@@ -468,7 +538,7 @@ Password to authenticate on the mail server.
 
 Default value: ``undef``
 
-##### `python_path`
+##### <a name="python_path"></a>`python_path`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -476,7 +546,7 @@ Path to Python.
 
 Default value: `$taiga::back::params::python_path`
 
-##### `python_version`
+##### <a name="python_version"></a>`python_version`
 
 Data type: `String[1]`
 
@@ -484,7 +554,7 @@ Version of Python.
 
 Default value: `$taiga::back::params::python_version`
 
-##### `virtualenv`
+##### <a name="virtualenv"></a>`virtualenv`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -492,7 +562,7 @@ Path to virtualenv.
 
 Default value: `$taiga::back::params::virtualenv`
 
-##### `change_notification_min_interval`
+##### <a name="change_notification_min_interval"></a>`change_notification_min_interval`
 
 Data type: `Optional[Integer]`
 
@@ -500,27 +570,47 @@ Interval for sending change notifications.
 
 Default value: ``undef``
 
-### `taiga::front`
+##### <a name="default_project_slug_prefix"></a>`default_project_slug_prefix`
+
+Data type: `Optional[Boolean]`
+
+Add username to project slug
+
+Default value: ``undef``
+
+### <a name="taigafront"></a>`taiga::front`
 
 Install taiga front
 
 #### Parameters
 
-The following parameters are available in the `taiga::front` class.
+The following parameters are available in the `taiga::front` class:
 
-##### `back_hostname`
+* [`back_hostname`](#back_hostname)
+* [`back_protocol`](#back_protocol)
+* [`events`](#events)
+* [`user`](#user)
+* [`repo_ensure`](#repo_ensure)
+* [`repo_revision`](#repo_revision)
+* [`install_dir`](#install_dir)
+* [`default_language`](#default_language)
+* [`public_register_enabled`](#public_register_enabled)
+* [`ldap_enable`](#ldap_enable)
+* [`gravatar`](#gravatar)
+
+##### <a name="back_hostname"></a>`back_hostname`
 
 Data type: `String[1]`
 
 Hostname used to reach the backend.
 
-##### `back_protocol`
+##### <a name="back_protocol"></a>`back_protocol`
 
 Data type: `Enum['http', 'https']`
 
 Protocol used to reach the backend.
 
-##### `events`
+##### <a name="events"></a>`events`
 
 Data type: `Boolean`
 
@@ -528,7 +618,7 @@ Data type: `Boolean`
 
 Default value: ``false``
 
-##### `user`
+##### <a name="user"></a>`user`
 
 Data type: `String[1]`
 
@@ -536,7 +626,7 @@ Name of the user owning the files of the frontend.
 
 Default value: `'nobody'`
 
-##### `repo_ensure`
+##### <a name="repo_ensure"></a>`repo_ensure`
 
 Data type: `Enum['present', 'latest']`
 
@@ -544,7 +634,7 @@ Ensure value for Taiga's vcs repository.
 
 Default value: `'present'`
 
-##### `repo_revision`
+##### <a name="repo_revision"></a>`repo_revision`
 
 Data type: `String[1]`
 
@@ -552,7 +642,7 @@ Revision for Taiga's vcs repository.
 
 Default value: `'stable'`
 
-##### `install_dir`
+##### <a name="install_dir"></a>`install_dir`
 
 Data type: `Stdlib::Absolutepath`
 
@@ -560,7 +650,7 @@ Directory where is installed the frontend of Taiga.
 
 Default value: `'/srv/www/taiga-front'`
 
-##### `default_language`
+##### <a name="default_language"></a>`default_language`
 
 Data type: `String[2, 2]`
 
@@ -568,7 +658,7 @@ Default language.
 
 Default value: `'en'`
 
-##### `public_register_enabled`
+##### <a name="public_register_enabled"></a>`public_register_enabled`
 
 Data type: `Boolean`
 
@@ -576,7 +666,7 @@ Enable anyone to register on this instance.
 
 Default value: ``true``
 
-##### `ldap_enable`
+##### <a name="ldap_enable"></a>`ldap_enable`
 
 Data type: `Boolean`
 
@@ -584,7 +674,7 @@ Enable the LDAP client.
 
 Default value: ``false``
 
-##### `gravatar`
+##### <a name="gravatar"></a>`gravatar`
 
 Data type: `Boolean`
 
@@ -592,45 +682,54 @@ Use gravatar.
 
 Default value: ``true``
 
-### `taiga::vhost`
+### <a name="taigavhost"></a>`taiga::vhost`
 
 Configure an apache Virtual Host for taiga
 
 #### Parameters
 
-The following parameters are available in the `taiga::vhost` class.
+The following parameters are available in the `taiga::vhost` class:
 
-##### `protocol`
+* [`protocol`](#protocol)
+* [`hostname`](#hostname)
+* [`back_directory`](#back_directory)
+* [`front_directory`](#front_directory)
+* [`back_user`](#back_user)
+* [`ssl_cert`](#ssl_cert)
+* [`ssl_key`](#ssl_key)
+* [`ssl_chain`](#ssl_chain)
+
+##### <a name="protocol"></a>`protocol`
 
 Data type: `Enum['http', 'https']`
 
 Protocol to be used.
 
-##### `hostname`
+##### <a name="hostname"></a>`hostname`
 
 Data type: `String[1]`
 
 Hostname that will be used to reach the Taiga instance.
 
-##### `back_directory`
+##### <a name="back_directory"></a>`back_directory`
 
 Data type: `Stdlib::Absolutepath`
 
 Directory where is installed the backend of Taiga.
 
-##### `front_directory`
+##### <a name="front_directory"></a>`front_directory`
 
 Data type: `Stdlib::Absolutepath`
 
 Directory where is installed the frontend of Taiga.
 
-##### `back_user`
+##### <a name="back_user"></a>`back_user`
 
 Data type: `String[1]`
 
 Name of the user running the backend daemon.
 
-##### `ssl_cert`
+##### <a name="ssl_cert"></a>`ssl_cert`
 
 Data type: `Optional[String[1]]`
 
@@ -638,7 +737,7 @@ Certificate to use for apache VirtualHost.
 
 Default value: ``undef``
 
-##### `ssl_key`
+##### <a name="ssl_key"></a>`ssl_key`
 
 Data type: `Optional[String[1]]`
 
@@ -646,7 +745,7 @@ Key to use for apache VirtualHost.
 
 Default value: ``undef``
 
-##### `ssl_chain`
+##### <a name="ssl_chain"></a>`ssl_chain`
 
 Data type: `Optional[String[1]]`
 

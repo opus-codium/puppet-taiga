@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.0](https://github.com/opus-codium/puppet-taiga/tree/1.2.0) (2021-02-08)
+## [1.3.0](https://github.com/opus-codium/puppet-taiga/tree/1.3.0) (2021-03-15)
+
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/1.2.0...1.3.0)
+
+**Implemented enhancements:**
+
+- Allow disabling inclusion of owner's username in projects slug [\#38](https://github.com/opus-codium/puppet-taiga/pull/38) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix string interpolation in configuration file [\#39](https://github.com/opus-codium/puppet-taiga/pull/39) ([smortex](https://github.com/smortex))
+
+## [1.2.0](https://github.com/opus-codium/puppet-taiga/tree/1.2.0) (2021-02-09)
 
 [Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/1.1.0...1.2.0)
 
