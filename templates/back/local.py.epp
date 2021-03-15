@@ -43,3 +43,6 @@ CHANGE_NOTIFICATIONS_MIN_INTERVAL = <%= $taiga::back::change_notification_min_in
 # for enable github login/singin.
 #GITHUB_API_CLIENT_ID = "yourgithubclientid"
 #GITHUB_API_CLIENT_SECRET = "yourgithubclientsecret"
+<% if $taiga::back::default_project_slug_prefix != undef { -%>
+DEFAULT_PROJECT_SLUG_PREFIX = <%= String($taiga::back::default_project_slug_prefix, '%T') %>
+<% } -%>

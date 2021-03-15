@@ -33,6 +33,7 @@
 # @param python_version Version of Python.
 # @param virtualenv Path to virtualenv.
 # @param change_notification_min_interval Interval for sending change notifications.
+# @param default_project_slug_prefix Add username to project slug
 class taiga::back (
   String[1]                  $front_hostname,
   Enum['http', 'https']      $front_protocol,
@@ -67,6 +68,7 @@ class taiga::back (
   String[1]                  $python_version = $taiga::back::params::python_version,
   Stdlib::Absolutepath       $virtualenv = $taiga::back::params::virtualenv,
   Optional[Integer]          $change_notification_min_interval = undef,
+  Optional[Boolean]          $default_project_slug_prefix = undef,
 ) {
   contain taiga::back::user
   contain taiga::back::dependencies
