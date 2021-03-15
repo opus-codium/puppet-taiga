@@ -25,6 +25,7 @@
 # @param ssl_key Key to use for apache VirtualHost.
 # @param ssl_chain Certificate chain to use for apache VirtualHost.
 # @param change_notification_min_interval Interval for sending change notifications.
+# @param default_project_slug_prefix Add username to project slug
 class taiga (
   String[1]                      $hostname,
   String[1]                      $back_secret_key,
@@ -51,6 +52,7 @@ class taiga (
   Optional[Stdlib::Absolutepath] $ssl_key = undef,
   Optional[Stdlib::Absolutepath] $ssl_chain = undef,
   Optional[Integer]              $change_notification_min_interval = undef,
+  Optional[Boolean]              $default_project_slug_prefix = undef,
 ) {
   $ldap_enable = $ldap_server ? {
     undef   => false,
@@ -91,6 +93,7 @@ class taiga (
     ldap_email_property              => $ldap_email_property,
     ldap_full_name_property          => $ldap_full_name_property,
     change_notification_min_interval => $change_notification_min_interval,
+    default_project_slug_prefix      => $default_project_slug_prefix,
   }
 
   class { 'taiga::vhost':
