@@ -8,6 +8,7 @@
 # @param repo_ensure Ensure value for Taiga's vcs repository.
 # @param repo_revision Revision for Taiga's vcs repository.
 # @param back_directory Directory where is installed the backend of Taiga.
+# @param venv_directory Default where is installed python dependencies.
 # @param front_directory Directory where is installed the frontend of Taiga.
 # @param back_user Name of the user running the backend daemon.
 # @param public_register_enabled Enable anyone to register on this instance.
@@ -35,6 +36,7 @@ class taiga (
   Enum['present', 'latest']      $repo_ensure = 'present',
   String[1]                      $repo_revision = 'stable',
   Stdlib::Absolutepath           $back_directory = '/srv/www/taiga-back',
+  Stdlib::Absolutepath           $venv_directory = '/srv/www/taiga-venv',
   Stdlib::Absolutepath           $front_directory = '/srv/www/taiga-front',
   String[1]                      $back_user = 'taiga',
   Boolean                        $public_register_enabled = true,
@@ -80,6 +82,7 @@ class taiga (
     repo_ensure                      => $repo_ensure,
     repo_revision                    => $repo_revision,
     install_dir                      => $back_directory,
+    venv_dir                         => $venv_directory,
     user                             => $back_user,
     public_register_enabled          => $public_register_enabled,
     ldap_enable                      => $ldap_enable,
@@ -100,6 +103,7 @@ class taiga (
     protocol        => $protocol,
     hostname        => $hostname,
     back_directory  => $back_directory,
+    venv_directory  => $venv_directory,
     front_directory => $front_directory,
     back_user       => $back_user,
     ssl_cert        => $ssl_cert,

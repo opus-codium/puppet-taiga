@@ -1,4 +1,3 @@
 ---
 taiga::back::python_path: "/usr/bin/python"
-taiga::back::python_version: "3.7"
 taiga::back::virtualenv: "/usr/bin/virtualenv"

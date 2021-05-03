@@ -4,5 +4,3 @@ taiga::back::virtualenv: "/usr/local/bin/virtualenv"
 taiga::back::dependencies:
   - "libxml2"
   - "libxslt"
-  - "py37-virtualenvwrapper"
-  - "python3"

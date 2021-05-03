@@ -3,6 +3,7 @@
 # @param protocol Protocol to be used.
 # @param hostname Hostname that will be used to reach the Taiga instance.
 # @param back_directory Directory where is installed the backend of Taiga.
+# @param venv_directory Directory where is installed python dependencies.
 # @param front_directory Directory where is installed the frontend of Taiga.
 # @param back_user Name of the user running the backend daemon.
 # @param ssl_cert Certificate to use for apache VirtualHost.
@@ -12,6 +13,7 @@ class taiga::vhost (
   Enum['http', 'https'] $protocol,
   String[1]             $hostname,
   Stdlib::Absolutepath  $back_directory,
+  Stdlib::Absolutepath  $venv_directory,
   Stdlib::Absolutepath  $front_directory,
   String[1]             $back_user,
   Optional[String[1]]   $ssl_cert = undef,
@@ -80,7 +82,7 @@ class taiga::vhost (
         passenger_app_root     => $back_directory,
         passenger_app_type     => 'wsgi',
         passenger_startup_file => 'passenger_wsgi.py',
-        passenger_python       => "${back_directory}/bin/python",
+        passenger_python       => "${venv_directory}/bin/python",
         passenger_user         => $back_user,
       },
       {
@@ -91,7 +93,7 @@ class taiga::vhost (
         passenger_app_root     => $back_directory,
         passenger_app_type     => 'wsgi',
         passenger_startup_file => 'passenger_wsgi.py',
-        passenger_python       => "${back_directory}/bin/python",
+        passenger_python       => "${venv_directory}/bin/python",
         passenger_user         => $back_user,
         require                => [
           '127.0.0.1',

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'taiga' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
-      let(:facts) { facts }
+      let(:facts) { facts.merge({ 'python3_version' => '3.8.0' }) }
       let(:params) do
         {
           hostname: 'example.com',
