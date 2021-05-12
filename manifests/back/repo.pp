@@ -12,7 +12,7 @@ class taiga::back::repo {
   -> vcsrepo { $taiga::back::install_dir:
     ensure   => $taiga::back::repo_ensure,
     provider => 'git',
-    source   => 'https://github.com/taigaio/taiga-back.git',
+    source   => 'https://github.com/kaleidos-ventures/taiga-back.git',
     revision => $taiga::back::repo_revision,
     user     => $taiga::back::user,
   }
