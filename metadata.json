@@ -17,6 +17,10 @@
       "version_requirement": ">= 3.0.0 < 8.0.0"
     },
     {
+      "name": "puppet/python",
+      "version_requirement": ">= 4.1.0 < 7"
+    },
+    {
       "name": "puppetlabs/stdlib",
       "version_requirement": ">= 4.13.0 < 8.0.0"
     },

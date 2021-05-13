@@ -4,29 +4,24 @@
 class taiga::back::install {
   assert_private()
 
-  exec { 'taiga-back-upgrade-pip':
-    command     => "${taiga::back::install_dir}/bin/pip install --upgrade pip",
-    cwd         => $taiga::back::install_dir,
-    refreshonly => true,
-    user        => $taiga::back::user,
+  if fact('os.family') == 'debian' {
+    ensure_packages('python3-wheel', { ensure => installed })
   }
 
-  exec { 'taiga-back-upgrade-setuptools':
-    command     => "${taiga::back::install_dir}/bin/pip install --upgrade setuptools",
-    cwd         => $taiga::back::install_dir,
-    refreshonly => true,
-    user        => $taiga::back::user,
+  if $python::dev != 'present' {
+    fail("Python developement tools must be installed.  Set \$python::dev to 'present'.")
   }
 
-  exec { 'taiga-back-pip-install':
-    command     => "${taiga::back::install_dir}/bin/pip install --requirement requirements.txt --upgrade",
-    cwd         => $taiga::back::install_dir,
-    refreshonly => true,
-    user        => $taiga::back::user,
-    timeout     => 0,
+  python::pyvenv { $taiga::back::venv_dir:
+    ensure     => present,
+    systempkgs => true,
+    owner      => $taiga::back::user,
+    group      => $taiga::back::user,
   }
 
-  Exec['taiga-back-upgrade-pip']
-  -> Exec['taiga-back-upgrade-setuptools']
-  -> Exec['taiga-back-pip-install']
+  python::requirements { "${$taiga::back::install_dir}/requirements.txt":
+    virtualenv => $taiga::back::venv_dir,
+    owner      => $taiga::back::user,
+    group      => $taiga::back::user,
+  }
 }

@@ -13,6 +13,7 @@
 # @param repo_ensure Ensure value for Taiga's vcs repository.
 # @param repo_revision Revision for Taiga's vcs repository.
 # @param install_dir Directory where is installed the backend of Taiga.
+# @parma venv_dir Directory where is installed Taiga pyhton dependencies.
 # @param public_register_enabled Enable anyone to register on this instance.
 # @param ldap_enable Enable the LDAP client.
 # @param ldap_server LDAP server.
@@ -29,9 +30,6 @@
 # @param email_port Port of the mail server.
 # @param email_user Username to authenticate on the mail server.
 # @param email_password Password to authenticate on the mail server.
-# @param python_path Path to Python.
-# @param python_version Version of Python.
-# @param virtualenv Path to virtualenv.
 # @param change_notification_min_interval Interval for sending change notifications.
 # @param default_project_slug_prefix Add username to project slug
 class taiga::back (
@@ -48,6 +46,7 @@ class taiga::back (
   Enum['present', 'latest']  $repo_ensure = 'present',
   String[1]                  $repo_revision = 'stable',
   Stdlib::Absolutepath       $install_dir = '/srv/www/taiga-back',
+  Stdlib::Absolutepath       $venv_dir = '/srv/www/taiga-venv',
   Boolean                    $public_register_enabled = true,
   Boolean                    $ldap_enable = false,
   Optional[String[1]]        $ldap_server = undef,
@@ -64,16 +63,12 @@ class taiga::back (
   Integer                    $email_port = 25,
   Optional[String[1]]        $email_user = undef,
   Optional[String[1]]        $email_password = undef,
-  Stdlib::Absolutepath       $python_path = $taiga::back::params::python_path,
-  String[1]                  $python_version = $taiga::back::params::python_version,
-  Stdlib::Absolutepath       $virtualenv = $taiga::back::params::virtualenv,
   Optional[Integer]          $change_notification_min_interval = undef,
   Optional[Boolean]          $default_project_slug_prefix = undef,
 ) {
   contain taiga::back::user
   contain taiga::back::dependencies
   contain taiga::back::repo
-  contain taiga::back::env
   contain taiga::back::install
   contain taiga::back::config
   contain taiga::back::cron
@@ -84,7 +79,6 @@ class taiga::back (
   Class['Taiga::Back::User']
   -> Class['Taiga::Back::Dependencies']
   -> Class['Taiga::Back::Repo']
-  -> Class['Taiga::Back::Env']
   -> Class['Taiga::Back::Install']
   -> Class['Taiga::Back::Config']
   -> Class['Taiga::Back::Cron']
@@ -105,7 +99,7 @@ class taiga::back (
   if $ldap_enable {
     contain taiga::back::ldap
 
-    Class['Taiga::Back::Env']
+    Class['Taiga::Back::Install']
     ~> Class['Taiga::Back::Ldap']
   }
 

@@ -14,6 +14,10 @@ describe 'taiga class' do
         ensure => installed,
       }
 
+      class { 'python':
+        dev => 'present',
+      }
+
       class { 'taiga':
         hostname         => 'taiga.io',
         protocol         => 'http',
