@@ -13,7 +13,7 @@
 # @param repo_ensure Ensure value for Taiga's vcs repository.
 # @param repo_revision Revision for Taiga's vcs repository.
 # @param install_dir Directory where is installed the backend of Taiga.
-# @parma venv_dir Directory where is installed Taiga pyhton dependencies.
+# @param venv_dir Directory where is installed Taiga pyhton dependencies.
 # @param public_register_enabled Enable anyone to register on this instance.
 # @param ldap_enable Enable the LDAP client.
 # @param ldap_server LDAP server.
