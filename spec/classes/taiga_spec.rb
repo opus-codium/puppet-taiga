@@ -3,6 +3,13 @@ require 'spec_helper'
 describe 'taiga' do
   on_supported_os.each do |os, facts|
     context "on #{os}" do
+      let(:pre_condition) do
+        <<~PP
+        class { 'python':
+          dev => present,
+        }
+        PP
+      end
       let(:facts) { facts.merge({ 'python3_version' => '3.8.0' }) }
       let(:params) do
         {

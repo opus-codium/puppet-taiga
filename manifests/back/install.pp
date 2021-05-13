@@ -8,6 +8,10 @@ class taiga::back::install {
     ensure_packages('python3-wheel', { ensure => installed })
   }
 
+  if $python::dev != 'present' {
+    fail("Python developement tools must be installed.  Set \$python::dev to 'present'.")
+  }
+
   python::pyvenv { $taiga::back::venv_dir:
     ensure     => present,
     systempkgs => true,
