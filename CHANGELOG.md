@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.0.0](https://github.com/opus-codium/puppet-taiga/tree/2.0.0) (2021-05-14)
+## [2.0.1](https://github.com/opus-codium/puppet-taiga/tree/2.0.1) (2021-05-14)
 
-[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/1.3.0...2.0.0)
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/1.3.0...2.0.1)
 
 **Breaking changes:**
 
@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 **Implemented enhancements:**
 
 - Update dependencies [\#41](https://github.com/opus-codium/puppet-taiga/pull/41) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix CHANGELOG.md [\#45](https://github.com/opus-codium/puppet-taiga/pull/45) ([smortex](https://github.com/smortex))
 
 ## [1.3.0](https://github.com/opus-codium/puppet-taiga/tree/1.3.0) (2021-03-15)
 
