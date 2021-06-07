@@ -1,0 +1,27 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Change a project slug",
+  "parameters": {
+    "current_slug": {
+      "description": "Current project slug",
+      "type": "String[1]"
+    },
+    "new_slug": {
+      "description": "New project slug",
+      "type": "String[1]"
+    },
+    "backend_directory": {
+      "description": "Backend directory",
+      "type": "String[1]",
+      "optional": true,
+      "default": "/srv/www/taiga-back"
+    },
+    "venv_directory": {
+      "description": "Python virtual env directory",
+      "type": "String[1]",
+      "optional": true,
+      "default": "/srv/www/taiga-venv"
+    }
+  }
+}
