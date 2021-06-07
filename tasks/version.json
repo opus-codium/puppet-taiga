@@ -8,13 +8,13 @@
       "description": "Backend directory",
       "type": "String[1]",
       "optional": true,
-      "default": "/srv/www/taiga-back"
+      "default": "/srv/www/taiga/back"
     },
     "frontend_directory": {
       "description": "Frontend directory",
       "type": "String[1]",
       "optional": true,
-      "default": "/srv/www/taiga-front"
+      "default": "/srv/www/taiga/front"
     }
   }
 }

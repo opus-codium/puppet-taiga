@@ -35,9 +35,9 @@ class taiga (
   String[2, 2]                   $default_language = 'en',
   Enum['present', 'latest']      $repo_ensure = 'present',
   String[1]                      $repo_revision = 'stable',
-  Stdlib::Absolutepath           $back_directory = '/srv/www/taiga-back',
-  Stdlib::Absolutepath           $venv_directory = '/srv/www/taiga-venv',
-  Stdlib::Absolutepath           $front_directory = '/srv/www/taiga-front',
+  Stdlib::Absolutepath           $back_directory = '/srv/www/taiga/back',
+  Stdlib::Absolutepath           $venv_directory = '/srv/www/taiga/venv',
+  Stdlib::Absolutepath           $front_directory = '/srv/www/taiga/front',
   String[1]                      $back_user = 'taiga',
   Boolean                        $public_register_enabled = true,
   Boolean                        $gravatar = true,
@@ -59,6 +59,10 @@ class taiga (
   $ldap_enable = $ldap_server ? {
     undef   => false,
     default => true,
+  }
+
+  file { '/srv/www/taiga':
+    ensure => directory,
   }
 
   class { 'taiga::front':
