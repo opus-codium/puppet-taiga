@@ -1,0 +1,20 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Retrieve Taiga back and front versions",
+  "input_method": "stdin",
+  "parameters": {
+    "backend_directory": {
+      "description": "Backend directory",
+      "type": "String[1]",
+      "optional": true,
+      "default": "/srv/www/taiga-back"
+    },
+    "frontend_directory": {
+      "description": "Frontend directory",
+      "type": "String[1]",
+      "optional": true,
+      "default": "/srv/www/taiga-front"
+    }
+  }
+}
