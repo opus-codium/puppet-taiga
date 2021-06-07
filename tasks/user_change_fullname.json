@@ -1,0 +1,21 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Change the full name for specified user",
+  "parameters": {
+    "username": {
+      "description": "Username",
+      "type": "String[1]"
+    },
+    "fullname": {
+      "description": "Full name",
+      "type": "String[1]"
+    },
+    "database": {
+      "description": "Database name",
+      "type": "String[1]",
+      "optional": true,
+      "default": "taiga"
+    }
+  }
+}
