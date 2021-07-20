@@ -1,6 +1,15 @@
 # taiga
 
-[![Build Status](https://github.com/opus-codium/puppet-taiga/workflows/CI/badge.svg)](https://github.com/opus-codium/puppet-taiga/actions?query=workflow%3ACI)
+<!-- header GFM -->
+[![Build Status](https://img.shields.io/github/workflow/status/opus-codium/puppet-taiga/Release)](https://github.com/opus-codium/puppet-taiga/releases)
+[![Puppet Forge](https://img.shields.io/puppetforge/v/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
+[![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
+[![Puppet Forge - scores](https://img.shields.io/puppetforge/f/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
+[![License](https://img.shields.io/github/license/opus-codium/puppet-taiga.svg)](https://github.com/voxpupuli/opuscodium-taiga/blob/master/LICENSE.md)
+<!-- header -->
+
+#### Table of Contents
 
 <!-- vim-markdown-toc GFM -->
 
