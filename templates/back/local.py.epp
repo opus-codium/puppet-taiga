@@ -3,40 +3,40 @@ from .common import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '<%= $taiga::back::db_name %>',
-        'USER': '<%= $taiga::back::db_user %>',
-        'PASSWORD': '<%= $taiga::back::db_password %>',
+        'NAME': <%= $taiga::back::db_name.to_python %>,
+        'USER': <%= $taiga::back::db_user.to_python %>,
+        'PASSWORD': <%= $taiga::back::db_password.to_python %>,
         'HOST': '',
         'PORT': '',
     }
 }
 
-MEDIA_URL = "<%= $taiga::back::front_protocol %>://<%= $taiga::back::front_hostname %>/media/"
-STATIC_URL = "<%= $taiga::back::front_protocol %>://<%= $taiga::back::front_hostname %>/static/"
-ADMIN_MEDIA_PREFIX = "<%= $taiga::back::front_protocol %>://<%= $taiga::back::front_hostname %>/static/admin/"
-SITES["front"]["scheme"] = "<%= $taiga::back::front_protocol %>"
-SITES["front"]["domain"] = "<%= $taiga::back::front_hostname %>"
+MEDIA_URL = <%= "${taiga::back::front_protocol}://${$taiga::back::front_hostname}/media/".to_python %>
+STATIC_URL = <%= "${taiga::back::front_protocol}://${$taiga::back::front_hostname}/static/".to_python %>
+ADMIN_MEDIA_PREFIX = <%= "${taiga::back::front_protocol}://${$taiga::back::front_hostname}/static/admin/".to_python %>
+SITES["front"]["scheme"] = <%= $taiga::back::front_protocol.to_python %>
+SITES["front"]["domain"] = <%= $taiga::back::front_hostname.to_python %>
 
-SECRET_KEY = "<%= $taiga::back::secret_key %>"
+SECRET_KEY = <%= $taiga::back::secret_key.to_python %>
 
 DEBUG = False
 TEMPLATE_DEBUG = False
-PUBLIC_REGISTER_ENABLED = <%= String($taiga::back::public_register_enabled, '%T') %>
+PUBLIC_REGISTER_ENABLED = <%= $taiga::back::public_register_enabled.to_python %>
 
-DEFAULT_FROM_EMAIL = "no-reply@<%= $taiga::back::front_hostname %>"
+DEFAULT_FROM_EMAIL = <%= "no-reply@${taiga::back::front_hostname}".to_python %>
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
 # Uncomment and populate with proper connection parameters
 # for enable email sending. EMAIL_HOST_USER should end by @domain.tld
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_USE_TLS = <%= String($taiga::back::email_use_tls, '%T') %>
-EMAIL_HOST = <%= if $taiga::back::email_host { String($taiga::back::email_host, '%p') } else { 'None' } %>
-EMAIL_HOST_USER = <%= if $taiga::back::email_user { String($taiga::back::email_user, '%p') } else { 'None' } %>
-EMAIL_HOST_PASSWORD = <%= if $taiga::back::email_password { String($taiga::back::email_password, '%p') } else { 'None' } %>
-EMAIL_PORT = <%= $taiga::back::email_port %>
+EMAIL_USE_TLS = <%= $taiga::back::email_use_tls.to_python %>
+EMAIL_HOST = <%= $taiga::back::email_host.to_python %>
+EMAIL_HOST_USER = <%= $taiga::back::email_user.to_python %>
+EMAIL_HOST_PASSWORD = <%= $taiga::back::email_password.to_python %>
+EMAIL_PORT = <%= $taiga::back::email_port.to_python %>
 
 <% if $taiga::back::change_notification_min_interval { -%>
-CHANGE_NOTIFICATIONS_MIN_INTERVAL = <%= $taiga::back::change_notification_min_interval %>
+CHANGE_NOTIFICATIONS_MIN_INTERVAL = <%= $taiga::back::change_notification_min_interval.to_python %>
 <% } -%>
 
 # Uncomment and populate with proper connection parameters
@@ -44,5 +44,5 @@ CHANGE_NOTIFICATIONS_MIN_INTERVAL = <%= $taiga::back::change_notification_min_in
 #GITHUB_API_CLIENT_ID = "yourgithubclientid"
 #GITHUB_API_CLIENT_SECRET = "yourgithubclientsecret"
 <% if $taiga::back::default_project_slug_prefix != undef { -%>
-DEFAULT_PROJECT_SLUG_PREFIX = <%= String($taiga::back::default_project_slug_prefix, '%T') %>
+DEFAULT_PROJECT_SLUG_PREFIX = <%= $taiga::back::default_project_slug_prefix.to_python %>
 <% } -%>
