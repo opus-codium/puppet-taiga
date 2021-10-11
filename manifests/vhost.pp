@@ -70,6 +70,16 @@ class taiga::vhost (
 
     directories                => [
       {
+        path           => "${back_directory}/media",
+        options        => 'None',
+        allow_override => 'None',
+      },
+      {
+        path           => "${back_directory}/static",
+        options        => 'None',
+        allow_override => 'None',
+      },
+      {
         path           => "${front_directory}/dist",
         options        => 'None',
         allow_override => 'None',
