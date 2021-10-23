@@ -1,6 +1,6 @@
 {
   "name": "opuscodium-taiga",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "author": "Opus Codium",
   "summary": "Installs, configures, and manages the Taiga project management software",
   "license": "Apache-2.0",
