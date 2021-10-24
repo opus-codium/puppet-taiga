@@ -19,7 +19,6 @@
 * `taiga::back::cron`: Setup crontab
 * `taiga::back::database`: Configure Taiga back database
 * `taiga::back::dependencies`: Configure Taiga back dependencies
-* `taiga::back::env`: Configure Taiga back virtualenv
 * `taiga::back::install`: Install Taiga back
 * `taiga::back::ldap`: Manage Taiga back LDAP configuration
 * `taiga::back::migrate`: Perform Taiga back migrations
@@ -37,6 +36,10 @@
 #### Private Defined types
 
 * `taiga::back::manage`: Allow running actions in Taiga back environment
+
+### Tasks
+
+* [`version`](#version): Retrieve Taiga back and front versions
 
 ## Classes
 
@@ -56,6 +59,7 @@ The following parameters are available in the `taiga` class:
 * [`repo_ensure`](#repo_ensure)
 * [`repo_revision`](#repo_revision)
 * [`back_directory`](#back_directory)
+* [`venv_directory`](#venv_directory)
 * [`front_directory`](#front_directory)
 * [`back_user`](#back_user)
 * [`public_register_enabled`](#public_register_enabled)
@@ -132,6 +136,14 @@ Data type: `Stdlib::Absolutepath`
 Directory where is installed the backend of Taiga.
 
 Default value: `'/srv/www/taiga-back'`
+
+##### <a name="venv_directory"></a>`venv_directory`
+
+Data type: `Stdlib::Absolutepath`
+
+Default where is installed python dependencies.
+
+Default value: `'/srv/www/taiga-venv'`
 
 ##### <a name="front_directory"></a>`front_directory`
 
@@ -298,6 +310,7 @@ The following parameters are available in the `taiga::back` class:
 * [`repo_ensure`](#repo_ensure)
 * [`repo_revision`](#repo_revision)
 * [`install_dir`](#install_dir)
+* [`venv_dir`](#venv_dir)
 * [`public_register_enabled`](#public_register_enabled)
 * [`ldap_enable`](#ldap_enable)
 * [`ldap_server`](#ldap_server)
@@ -314,9 +327,6 @@ The following parameters are available in the `taiga::back` class:
 * [`email_port`](#email_port)
 * [`email_user`](#email_user)
 * [`email_password`](#email_password)
-* [`python_path`](#python_path)
-* [`python_version`](#python_version)
-* [`virtualenv`](#virtualenv)
 * [`change_notification_min_interval`](#change_notification_min_interval)
 * [`default_project_slug_prefix`](#default_project_slug_prefix)
 
@@ -409,6 +419,14 @@ Data type: `Stdlib::Absolutepath`
 Directory where is installed the backend of Taiga.
 
 Default value: `'/srv/www/taiga-back'`
+
+##### <a name="venv_dir"></a>`venv_dir`
+
+Data type: `Stdlib::Absolutepath`
+
+Directory where is installed Taiga pyhton dependencies.
+
+Default value: `'/srv/www/taiga-venv'`
 
 ##### <a name="public_register_enabled"></a>`public_register_enabled`
 
@@ -537,30 +555,6 @@ Data type: `Optional[String[1]]`
 Password to authenticate on the mail server.
 
 Default value: ``undef``
-
-##### <a name="python_path"></a>`python_path`
-
-Data type: `Stdlib::Absolutepath`
-
-Path to Python.
-
-Default value: `$taiga::back::params::python_path`
-
-##### <a name="python_version"></a>`python_version`
-
-Data type: `String[1]`
-
-Version of Python.
-
-Default value: `$taiga::back::params::python_version`
-
-##### <a name="virtualenv"></a>`virtualenv`
-
-Data type: `Stdlib::Absolutepath`
-
-Path to virtualenv.
-
-Default value: `$taiga::back::params::virtualenv`
 
 ##### <a name="change_notification_min_interval"></a>`change_notification_min_interval`
 
@@ -693,6 +687,7 @@ The following parameters are available in the `taiga::vhost` class:
 * [`protocol`](#protocol)
 * [`hostname`](#hostname)
 * [`back_directory`](#back_directory)
+* [`venv_directory`](#venv_directory)
 * [`front_directory`](#front_directory)
 * [`back_user`](#back_user)
 * [`ssl_cert`](#ssl_cert)
@@ -716,6 +711,12 @@ Hostname that will be used to reach the Taiga instance.
 Data type: `Stdlib::Absolutepath`
 
 Directory where is installed the backend of Taiga.
+
+##### <a name="venv_directory"></a>`venv_directory`
+
+Data type: `Stdlib::Absolutepath`
+
+Directory where is installed python dependencies.
 
 ##### <a name="front_directory"></a>`front_directory`
 
@@ -754,4 +755,26 @@ Certificate chain to use for apache VirtualHost.
 Default value: ``undef``
 
 ## Defined types
+
+## Tasks
+
+### <a name="version"></a>`version`
+
+Retrieve Taiga back and front versions
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `backend_directory`
+
+Data type: `String[1]`
+
+Backend directory
+
+##### `frontend_directory`
+
+Data type: `String[1]`
+
+Frontend directory
 
