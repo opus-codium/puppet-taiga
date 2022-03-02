@@ -1,0 +1,13 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "List users",
+  "parameters": {
+    "database": {
+      "description": "Database name",
+      "type": "String[1]",
+      "optional": true,
+      "default": "taiga"
+    }
+  }
+}
