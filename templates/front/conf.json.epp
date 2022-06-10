@@ -1,18 +1,18 @@
 {
-    "api": "<%= $taiga::front::back_protocol %>://<%= $taiga::front::back_hostname %>/api/v1/",
+    "api": <%= "${taiga::front::back_protocol}://${taiga::front::back_hostname}/api/v1/".to_json %>,
 <% if $taiga::front::events { -%>
-    "eventsUrl": "<%= $taiga::front::ws_protocol %>://<%= $taiga::front::back_hostname %>/events",
+    "eventsUrl": <%= "${taiga::front::ws_protocol}://${taiga::front::back_hostname}/events".to_json %>,
 <% } -%>
     "debug": "true",
-    "defaultLanguage": "<%= $taiga::front::default_language %>",
-    "publicRegisterEnabled": <%= $taiga::front::public_register_enabled %>,
+    "defaultLanguage": <%= $taiga::front::default_language.to_json %>,
+    "publicRegisterEnabled": <%= $taiga::front::public_register_enabled.to_json %>,
     "feedbackEnabled": true,
 <% if $taiga::front::config::login_form_type { -%>
-    "loginFormType": "<%= $taiga::front::config::login_form_type %>",
+    "loginFormType": <%= $taiga::front::config::login_form_type.to_json %>,
 <% } -%>
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
     "contribPlugins": [],
-    "gravatar": <%= $taiga::front::gravatar %>
+    "gravatar": <%= $taiga::front::gravatar.to_json %>
 }
