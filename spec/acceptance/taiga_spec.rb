@@ -17,7 +17,8 @@ describe 'taiga class' do
       }
 
       class { 'python':
-        dev => 'present',
+        dev  => 'present',
+        venv => 'present',
       }
 
       class { 'taiga':
