@@ -1,4 +1,3 @@
 ---
-.travis.yml:
-  test_with_debian_puppet:
-    stretch: true
+spec/spec_helper.rb:
+  add_mocked_facts: true

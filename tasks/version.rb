@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require 'json'
 
@@ -29,7 +30,7 @@ module Taiga
   end
 end
 
-params = JSON.parse(STDIN.read)
+params = JSON.parse($stdin.read)
 
 backend = Taiga::SoftwarePart.new(params['backend_directory'])
 frontend = Taiga::SoftwarePart.new(params['frontend_directory'])

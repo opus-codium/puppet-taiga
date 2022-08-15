@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'taiga class' do
@@ -15,7 +17,8 @@ describe 'taiga class' do
       }
 
       class { 'python':
-        dev => 'present',
+        dev  => 'present',
+        venv => 'present',
       }
 
       class { 'taiga':
