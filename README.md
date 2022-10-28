@@ -34,7 +34,7 @@ This Puppet module simplifies the installation and configuration of Taiga in you
 In order to install `taiga-back`, `taiga-front` and an apache virtual host, the following is enough:
 
 ```puppet
-class { '::taiga':
+class { 'taiga':
   hostname         => 'taiga.io',
   protocol         => 'http',
   back_secret_key  => 'secret',
@@ -45,7 +45,7 @@ class { '::taiga':
 ### Installing a secured HTTPS Taiga instance
 
 ```puppet
-class { '::taiga':
+class { 'taiga':
   hostname         => 'taiga.io',
   back_secret_key  => 'secret',
   back_db_password => 'secret',  # currently unused
@@ -57,19 +57,19 @@ class { '::taiga':
 
 ### Choosing which version to install
 
-By default, the module will install the latest stable release and keepit untouched.  If you prefer to install a given release, you can do the following:
+By default, the module will install the latest stable release and will not auto-update it.  If you prefer to install a given release, you can do the following:
 
 ```puppet
-class { '::taiga':
+class { 'taiga':
   # [...]
   repo_revision => '2.1.0',
 }
 ```
 
-If you want to track the stable branch:
+If you want to track the stable branch and install update as the stable branch is updated:
 
 ```puppet
-class { '::taiga':
+class { 'taiga':
   # [...]
   repo_ensure   => 'latest',
   repo_revision => 'stable',
@@ -79,10 +79,10 @@ class { '::taiga':
 If you like the danger:
 
 ```puppet
-class { '::taiga':
+class { 'taiga':
   # [...]
   repo_ensure   => 'latest',
-  repo_revision => 'master',
+  repo_revision => 'main',
 }
 ```
 
