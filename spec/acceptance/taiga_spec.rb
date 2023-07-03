@@ -5,7 +5,7 @@ require 'spec_helper_acceptance'
 describe 'taiga class' do
   it 'works idempotently with no errors' do
     options[:forge_host] = 'https://forge.puppet.com'
-    puppet_module_install(module_name: 'puppetlabs-apache')
+    shell('puppet module install puppetlabs-apache')
 
     pp = <<~MANIFEST
       file { '/srv/www':
