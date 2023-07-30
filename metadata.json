@@ -10,19 +10,19 @@
   "dependencies": [
     {
       "name": "puppetlabs/concat",
-      "version_requirement": ">= 0.1.0 < 8.0.0"
+      "version_requirement": ">= 0.1.0 < 10.0.0"
     },
     {
       "name": "puppetlabs/postgresql",
-      "version_requirement": ">= 6.5.0 < 9.0.0"
+      "version_requirement": ">= 6.5.0 < 10.0.0"
     },
     {
       "name": "puppet/python",
-      "version_requirement": ">= 4.1.0 < 7.0.0"
+      "version_requirement": ">= 4.1.0 < 8.0.0"
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 8.2.0 < 9.0.0"
+      "version_requirement": ">= 8.2.0 < 10.0.0"
     },
     {
       "name": "puppetlabs/vcsrepo",
