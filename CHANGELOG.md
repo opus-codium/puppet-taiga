@@ -1,13 +1,33 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
+Each new release typically also includes the latest modulesync defaults.
+These should not affect the functionality of the module.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [v3.0.0](https://github.com/opus-codium/puppet-taiga/tree/v3.0.0) (2023-08-07)
 
-## [2.1.0](https://github.com/opus-codium/puppet-taiga/tree/2.1.0) (2021-10-23)
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v2.1.0...v3.0.0)
 
-[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/2.0.1...2.1.0)
+**Breaking changes:**
+
+- Drop support for Debian 10 \(oldstable\) [\#58](https://github.com/opus-codium/puppet-taiga/pull/58) ([smortex](https://github.com/smortex))
+- Remove support for Puppet 6 \(EOL\) [\#57](https://github.com/opus-codium/puppet-taiga/pull/57) ([smortex](https://github.com/smortex))
+- Rework templates [\#51](https://github.com/opus-codium/puppet-taiga/pull/51) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Add support for Puppet 8 [\#62](https://github.com/opus-codium/puppet-taiga/pull/62) ([smortex](https://github.com/smortex))
+- Relax dependencies version requirements [\#60](https://github.com/opus-codium/puppet-taiga/pull/60) ([smortex](https://github.com/smortex))
+- Allow puppetlabs-postgresql 8.x [\#55](https://github.com/opus-codium/puppet-taiga/pull/55) ([smortex](https://github.com/smortex))
+- Add tasks to ease users/projects management [\#48](https://github.com/opus-codium/puppet-taiga/pull/48) ([neomilium](https://github.com/neomilium))
+
+**Fixed bugs:**
+
+- Fix deprecated usage of postgresql\_password [\#59](https://github.com/opus-codium/puppet-taiga/pull/59) ([smortex](https://github.com/smortex))
+
+## [v2.1.0](https://github.com/opus-codium/puppet-taiga/tree/v2.1.0) (2021-10-24)
+
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/2.0.1...v2.1.0)
 
 **Implemented enhancements:**
 
