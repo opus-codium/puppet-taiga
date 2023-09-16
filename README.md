@@ -1,7 +1,7 @@
 # taiga
 
 <!-- header GFM -->
-[![Build Status](https://img.shields.io/github/workflow/status/opus-codium/puppet-taiga/Release)](https://github.com/opus-codium/puppet-taiga/releases)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/opus-codium/puppet-taiga/release.yml)](https://github.com/opus-codium/puppet-taiga/releases)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
 [![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
 [![Puppet Forge - endorsement](https://img.shields.io/puppetforge/e/opuscodium/taiga.svg)](https://forge.puppetlabs.com/opuscodium/taiga)
