@@ -14,6 +14,7 @@
 # @param repo_revision Revision for Taiga's vcs repository.
 # @param install_dir Directory where is installed the backend of Taiga.
 # @param venv_dir Directory where is installed Taiga pyhton dependencies.
+# @param admins Administrators to notify of Taiga exceptions.
 # @param public_register_enabled Enable anyone to register on this instance.
 # @param ldap_enable Enable the LDAP client.
 # @param ldap_server LDAP server.
@@ -47,6 +48,7 @@ class taiga::back (
   String[1]                  $repo_revision = 'stable',
   Stdlib::Absolutepath       $install_dir = '/srv/www/taiga-back',
   Stdlib::Absolutepath       $venv_dir = '/srv/www/taiga-venv',
+  Array[Taiga::Admin]        $admins = [],
   Boolean                    $public_register_enabled = true,
   Boolean                    $ldap_enable = false,
   Optional[String[1]]        $ldap_server = undef,
