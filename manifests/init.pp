@@ -11,6 +11,7 @@
 # @param venv_directory Default where is installed python dependencies.
 # @param front_directory Directory where is installed the frontend of Taiga.
 # @param back_user Name of the user running the backend daemon.
+# @param back_admins Administrators to notify of Taiga exceptions.
 # @param public_register_enabled Enable anyone to register on this instance.
 # @param gravatar Use gravatar.
 # @param ldap_server LDAP server.
@@ -39,6 +40,7 @@ class taiga (
   Stdlib::Absolutepath           $venv_directory = '/srv/www/taiga-venv',
   Stdlib::Absolutepath           $front_directory = '/srv/www/taiga-front',
   String[1]                      $back_user = 'taiga',
+  Array[Taiga::Admin]            $back_admins = [],
   Boolean                        $public_register_enabled = true,
   Boolean                        $gravatar = true,
   Optional[String[1]]            $ldap_server = undef,
@@ -77,6 +79,7 @@ class taiga (
     front_protocol                   => $protocol,
     back_hostname                    => $hostname,
     back_protocol                    => $protocol,
+    admins                           => $back_admins,
     secret_key                       => $back_secret_key,
     db_password                      => $back_db_password,
     repo_ensure                      => $repo_ensure,

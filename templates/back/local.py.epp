@@ -1,5 +1,7 @@
 from .common import *
 
+ADMINS = <%= $taiga::back::admins.to_python %>
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',

@@ -34,6 +34,10 @@
 
 * `taiga::back::manage`: Allow running actions in Taiga back environment
 
+### Data types
+
+* [`Taiga::Admin`](#Taiga--Admin): A Taiga::Admin is composed of a full name and an e-mail address
+
 ### Tasks
 
 * [`project_change_slug`](#project_change_slug): Change a project slug
@@ -63,6 +67,7 @@ The following parameters are available in the `taiga` class:
 * [`venv_directory`](#-taiga--venv_directory)
 * [`front_directory`](#-taiga--front_directory)
 * [`back_user`](#-taiga--back_user)
+* [`back_admins`](#-taiga--back_admins)
 * [`public_register_enabled`](#-taiga--public_register_enabled)
 * [`gravatar`](#-taiga--gravatar)
 * [`ldap_server`](#-taiga--ldap_server)
@@ -161,6 +166,14 @@ Data type: `String[1]`
 Name of the user running the backend daemon.
 
 Default value: `'taiga'`
+
+##### <a name="-taiga--back_admins"></a>`back_admins`
+
+Data type: `Array[Taiga::Admin]`
+
+Administrators to notify of Taiga exceptions.
+
+Default value: `[]`
 
 ##### <a name="-taiga--public_register_enabled"></a>`public_register_enabled`
 
@@ -312,6 +325,7 @@ The following parameters are available in the `taiga::back` class:
 * [`repo_revision`](#-taiga--back--repo_revision)
 * [`install_dir`](#-taiga--back--install_dir)
 * [`venv_dir`](#-taiga--back--venv_dir)
+* [`admins`](#-taiga--back--admins)
 * [`public_register_enabled`](#-taiga--back--public_register_enabled)
 * [`ldap_enable`](#-taiga--back--ldap_enable)
 * [`ldap_server`](#-taiga--back--ldap_server)
@@ -428,6 +442,14 @@ Data type: `Stdlib::Absolutepath`
 Directory where is installed Taiga pyhton dependencies.
 
 Default value: `'/srv/www/taiga-venv'`
+
+##### <a name="-taiga--back--admins"></a>`admins`
+
+Data type: `Array[Taiga::Admin]`
+
+Administrators to notify of Taiga exceptions.
+
+Default value: `[]`
 
 ##### <a name="-taiga--back--public_register_enabled"></a>`public_register_enabled`
 
@@ -754,6 +776,14 @@ Data type: `Optional[String[1]]`
 Certificate chain to use for apache VirtualHost.
 
 Default value: `undef`
+
+## Data types
+
+### <a name="Taiga--Admin"></a>`Taiga::Admin`
+
+A Taiga::Admin is composed of a full name and an e-mail address
+
+Alias of `Tuple[String[1], Pattern[/.@./]]`
 
 ## Tasks
 
