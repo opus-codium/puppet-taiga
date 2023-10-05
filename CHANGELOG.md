@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v3.0.0](https://github.com/opus-codium/puppet-taiga/tree/v3.0.0) (2023-08-07)
+## [v3.1.0](https://github.com/opus-codium/puppet-taiga/tree/v3.1.0) (2023-10-05)
+
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v3.0.0...v3.1.0)
+
+**Implemented enhancements:**
+
+- Allow management of Django's `ADMINS` setting [\#65](https://github.com/opus-codium/puppet-taiga/pull/65) ([smortex](https://github.com/smortex))
+
+## [v3.0.0](https://github.com/opus-codium/puppet-taiga/tree/v3.0.0) (2023-08-08)
 
 [Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v2.1.0...v3.0.0)
 
