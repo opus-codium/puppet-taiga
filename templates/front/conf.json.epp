@@ -1,18 +1,18 @@
 {
-    "api": <%= "${taiga::front::back_protocol}://${taiga::front::back_hostname}/api/v1/".to_json %>,
+    "api": <%= "${taiga::front::back_protocol}://${taiga::front::back_hostname}/api/v1/".stdlib::to_json %>,
 <% if $taiga::front::events { -%>
-    "eventsUrl": <%= "${taiga::front::ws_protocol}://${taiga::front::back_hostname}/events".to_json %>,
+    "eventsUrl": <%= "${taiga::front::ws_protocol}://${taiga::front::back_hostname}/events".stdlib::to_json %>,
 <% } -%>
     "debug": "true",
-    "defaultLanguage": <%= $taiga::front::default_language.to_json %>,
-    "publicRegisterEnabled": <%= $taiga::front::public_register_enabled.to_json %>,
+    "defaultLanguage": <%= $taiga::front::default_language.stdlib::to_json %>,
+    "publicRegisterEnabled": <%= $taiga::front::public_register_enabled.stdlib::to_json %>,
     "feedbackEnabled": true,
 <% if $taiga::front::config::login_form_type { -%>
-    "loginFormType": <%= $taiga::front::config::login_form_type.to_json %>,
+    "loginFormType": <%= $taiga::front::config::login_form_type.stdlib::to_json %>,
 <% } -%>
     "privacyPolicyUrl": null,
     "termsOfServiceUrl": null,
     "maxUploadFileSize": null,
     "contribPlugins": [],
-    "gravatar": <%= $taiga::front::gravatar.to_json %>
+    "gravatar": <%= $taiga::front::gravatar.stdlib::to_json %>
 }
