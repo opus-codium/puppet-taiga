@@ -6,5 +6,5 @@ class taiga::back::dependencies {
 
   include python
 
-  ensure_packages($taiga::back::dependencies, { ensure => installed, })
+  stdlib::ensure_packages($taiga::back::dependencies, { ensure => installed, })
 }
