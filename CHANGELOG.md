@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.0.1](https://github.com/opus-codium/puppet-taiga/tree/v4.0.1) (2023-11-30)
+
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v4.0.0...v4.0.1)
+
+**Fixed bugs:**
+
+- Fix another non-namespaced `to_python` [\#70](https://github.com/opus-codium/puppet-taiga/pull/70) ([smortex](https://github.com/smortex))
+
 ## [v4.0.0](https://github.com/opus-codium/puppet-taiga/tree/v4.0.0) (2023-11-30)
 
 [Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v3.1.0...v4.0.0)
