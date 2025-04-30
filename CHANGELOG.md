@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v4.1.0](https://github.com/opus-codium/puppet-taiga/tree/v4.1.0) (2025-04-28)
+
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v4.0.1...v4.1.0)
+
+**Implemented enhancements:**
+
+- Allow puppet/python 8.x [\#79](https://github.com/opus-codium/puppet-taiga/pull/79) ([smortex](https://github.com/smortex))
+- Allow puppetlabs/vcsrepo 7.x [\#77](https://github.com/opus-codium/puppet-taiga/pull/77) ([smortex](https://github.com/smortex))
+- Allow puppetlabs/postgresql 10.x [\#76](https://github.com/opus-codium/puppet-taiga/pull/76) ([smortex](https://github.com/smortex))
+- Add support for FreeBSD 14 [\#74](https://github.com/opus-codium/puppet-taiga/pull/74) ([smortex](https://github.com/smortex))
+- Add support for Debian 12 [\#73](https://github.com/opus-codium/puppet-taiga/pull/73) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix deployment with PostgreSQL 15 [\#75](https://github.com/opus-codium/puppet-taiga/pull/75) ([smortex](https://github.com/smortex))
+
 ## [v4.0.1](https://github.com/opus-codium/puppet-taiga/tree/v4.0.1) (2023-11-30)
 
 [Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v4.0.0...v4.0.1)
