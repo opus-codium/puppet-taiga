@@ -31,4 +31,13 @@ class taiga::back::install {
     owner      => $taiga::back::user,
     group      => $taiga::back::user,
   }
+
+  if fact('os.family') == 'debian' and versioncmp(fact('os.release.full'), '13.0') >= 0 {
+    exec { 'fix-cgi':
+      command => "${taiga::back::venv_dir}/bin/pip install legacy-cgi",
+      creates => "${taiga::back::venv_dir}/lib/python${facts['python3_release']}/site-packages/cgi.py",
+      require => Python::Pyvenv[$taiga::back::venv_dir],
+      before  => Python::Requirements["${$taiga::back::install_dir}/requirements.txt"],
+    }
+  }
 }
