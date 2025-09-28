@@ -5,7 +5,7 @@ class taiga::back::install {
   assert_private()
 
   if fact('os.family') == 'debian' {
-    ensure_packages('python3-wheel', { ensure => installed })
+    stdlib::ensure_packages('python3-wheel', { ensure => installed })
   }
 
   if $python::dev != 'present' {
