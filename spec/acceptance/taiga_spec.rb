@@ -29,7 +29,7 @@ describe 'taiga class' do
       }
     MANIFEST
 
-    apply_manifest(pp, catch_failures: true)
-    apply_manifest(pp, catch_changes: true)
+    apply_manifest(pp, catch_failures: true, environment: { LANG: 'C.UTF-8' })
+    apply_manifest(pp, catch_changes: true, environment: { LANG: 'C.UTF-8' })
   end
 end
