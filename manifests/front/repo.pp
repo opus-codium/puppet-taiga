@@ -12,7 +12,7 @@ class taiga::front::repo {
   -> vcsrepo { $taiga::front::install_dir:
     ensure   => $taiga::front::repo_ensure,
     provider => 'git',
-    source   => 'https://github.com/kaleidos-ventures/taiga-front-dist.git',
+    source   => 'https://github.com/taigaio/taiga-front-dist.git',
     revision => $taiga::front::repo_revision,
     user     => $taiga::front::user,
   }
