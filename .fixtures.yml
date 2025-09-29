@@ -1,11 +1,10 @@
+---
 fixtures:
   repositories:
-    apache: "https://github.com/puppetlabs/puppetlabs-apache"
-    concat: "https://github.com/puppetlabs/puppetlabs-concat"
-    cron_core: "https://github.com/puppetlabs/puppetlabs-cron_core"
-    postgresql: "https://github.com/puppetlabs/puppetlabs-postgresql"
-    python: "https://github.com/voxpupuli/puppet-python"
-    stdlib: "https://github.com/puppetlabs/puppetlabs-stdlib"
-    vcsrepo: "https://github.com/puppetlabs/puppetlabs-vcsrepo"
-  symlinks:
-    taiga: "#{source_dir}"
+    apache: https://github.com/puppetlabs/puppetlabs-apache.git
+    concat: https://github.com/puppetlabs/puppetlabs-concat.git
+    cron_core: https://github.com/puppetlabs/puppetlabs-cron_core.git
+    postgresql: https://github.com/puppetlabs/puppetlabs-postgresql.git
+    python: https://github.com/voxpupuli/puppet-python.git
+    stdlib: https://github.com/puppetlabs/puppetlabs-stdlib.git
+    vcsrepo: https://github.com/puppetlabs/puppetlabs-vcsrepo.git

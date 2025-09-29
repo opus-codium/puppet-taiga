@@ -5,7 +5,7 @@ class taiga::back::install {
   assert_private()
 
   if fact('os.family') == 'debian' {
-    ensure_packages('python3-wheel', { ensure => installed })
+    stdlib::ensure_packages('python3-wheel', { ensure => installed })
   }
 
   if $python::dev != 'present' {
@@ -19,7 +19,14 @@ class taiga::back::install {
     group      => $taiga::back::user,
   }
 
-  python::requirements { "${$taiga::back::install_dir}/requirements.txt":
+  # XXX: Recent version of setuptools (installed by puppet-python) does not bundle pycparser anymore, which cause trouble with dependencies
+  # https://github.com/pypa/setuptools/issues/580
+  -> exec { 'fix-setuptools-pycparser':
+    command => "${taiga::back::venv_dir}/bin/pip install pycparser",
+    creates => "${taiga::back::venv_dir}/lib/python${facts['python3_release']}/site-packages/pycparser",
+  }
+
+  -> python::requirements { "${$taiga::back::install_dir}/requirements.txt":
     virtualenv => $taiga::back::venv_dir,
     owner      => $taiga::back::user,
     group      => $taiga::back::user,
