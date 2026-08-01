@@ -4,7 +4,28 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v4.1.0](https://github.com/opus-codium/puppet-taiga/tree/v4.1.0) (2025-04-28)
+## [v5.0.0](https://github.com/opus-codium/puppet-taiga/tree/v5.0.0) (2026-08-01)
+
+[Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v4.1.0...v5.0.0)
+
+**Breaking changes:**
+
+- Drop Debian 11 \(almost EOL\) [\#90](https://github.com/opus-codium/puppet-taiga/pull/90) ([smortex](https://github.com/smortex))
+- Relocate Taiga repositories [\#86](https://github.com/opus-codium/puppet-taiga/pull/86) ([smortex](https://github.com/smortex))
+- Switch from Puppet to OpenVox [\#83](https://github.com/opus-codium/puppet-taiga/pull/83) ([smortex](https://github.com/smortex))
+
+**Implemented enhancements:**
+
+- Allow stdlib 10.x [\#89](https://github.com/opus-codium/puppet-taiga/pull/89) ([smortex](https://github.com/smortex))
+- Allow concat 10.x [\#88](https://github.com/opus-codium/puppet-taiga/pull/88) ([smortex](https://github.com/smortex))
+- Allow python 10.x [\#87](https://github.com/opus-codium/puppet-taiga/pull/87) ([smortex](https://github.com/smortex))
+- Add support for Debian 13 [\#84](https://github.com/opus-codium/puppet-taiga/pull/84) ([smortex](https://github.com/smortex))
+
+**Fixed bugs:**
+
+- Fix deprecation warning [\#85](https://github.com/opus-codium/puppet-taiga/pull/85) ([smortex](https://github.com/smortex))
+
+## [v4.1.0](https://github.com/opus-codium/puppet-taiga/tree/v4.1.0) (2025-04-30)
 
 [Full Changelog](https://github.com/opus-codium/puppet-taiga/compare/v4.0.1...v4.1.0)
 
